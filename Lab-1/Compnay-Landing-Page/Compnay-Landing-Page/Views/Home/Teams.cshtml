@@ -3,6 +3,29 @@
     ViewBag.Title = "Teams";
 }
 
-<h2>Teams</h2>
 
-this is the team members
+<!----->
+
+<main>
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="row">
+                @foreach (var m in ViewBag.Members){
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <img src="@m.personImage" class="card-img-top" alt="@m.Name">
+                            <div class="card-body">
+                                <h5 class="card-title">@m.Name</h5>
+                                <p class="card-text">Position: @m.Position</p>
+                                <p class="card-text">Email: @m.Email</p>
+                                <p class="card-text">Phone: @m.Phone</p>
+                                <p class="card-text">Description: @m.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+</section>
+</main>
