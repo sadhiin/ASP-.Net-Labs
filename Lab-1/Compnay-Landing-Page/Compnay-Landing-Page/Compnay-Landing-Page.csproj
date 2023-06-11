@@ -125,9 +125,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\images\company-1.jpg" />
+    <Content Include="App_Data\images\company-2.jpg" />
+    <Content Include="App_Data\images\company-3.jpg" />
+    <Content Include="App_Data\images\company-4.jpg" />
+    <Content Include="App_Data\images\project1.jpg" />
+    <Content Include="App_Data\images\project2.jpg" />
+    <Content Include="App_Data\images\project3.jpg" />
+    <Content Include="App_Data\images\project4.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -181,9 +190,7 @@
     <Content Include="Views\Home\Services.cshtml" />
     <Content Include="Views\Home\Teams.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />

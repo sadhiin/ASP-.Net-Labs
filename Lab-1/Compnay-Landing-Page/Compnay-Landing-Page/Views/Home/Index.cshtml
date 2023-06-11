@@ -2,8 +2,58 @@
     ViewBag.Title = "Home Page";
 }
 
-<main>
-    <div>
-        This is the company Landing page
+<section class="hero">
+    <div class="container">
+        <h1>Welcome to Company Name</h1>
+        <p>Discover our amazing services and products.</p>
+        <a href="#about" class="btn btn-primary">Learn More</a>
     </div>
-</main>
+</section>
+
+<section id="about" class="about-section">
+    <div class="container">
+    <br />
+       
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae ligula sed ante cursus luctus. Phasellus condimentum quam nec est pharetra, at sagittis mauris facilisis.</p>
+    </div>
+</section>
+
+<section id="projects" class="projects-section">
+    <div class="container">
+        <h2>Our Projects</h2>
+        <div class="row">
+            <!-- class containter -->
+            @foreach (var p in ViewBag.Projects)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="@p.PorjectImage" class="card-img-top" alt="@p.ProjectName">
+                        <div class="card-body">
+                            <h5 class="card-title">@p.ProjectName</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <a href="#" class="btn btn-primary" onclick="toggleDetails(1)">View Details</a>
+                            <div class="details" id="details1" style="display: none;">
+                                <p>@p.ProjectDetails</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <script>
+        function toggleDetails(projectId) {
+            var details = document.getElementById("details" + projectId);
+            if (details.style.display === "none") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+    </script>
+</section>
