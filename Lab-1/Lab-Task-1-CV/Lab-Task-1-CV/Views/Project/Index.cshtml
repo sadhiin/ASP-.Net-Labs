@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center>
+    <h2>Projects</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Project</th>
+                <th>Github-Link</th>
+            </tr>
+        </thead>
+        @for (int i = 0; i < ViewBag.ProjectList.Count; i++)
+        {
+            <tr>
+
+                <td>@ViewBag.ProjectList[i].CourseName</td>
+                <td>@ViewBag.ProjectList[i].Name</td>
+                <td><a href="@ViewBag.ProjectList[i].gitLink">Github-Link</a></td>
+            </tr>
+        }
+    </table>
+</center>

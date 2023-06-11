@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Educations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Educations</h2>
+
+<ol>
+    @foreach(var item in Model)
+            {
+                <li>
+                    <ul>
+                        <b><li>@item.Level</li></b>
+                        <li>@item.ins</li>
+                        <li>@item.passingYear</li>
+                    </ul>
+                    <br />
+                </li>
+            }
+</ol>
+
+<br />
+<br />
+<hr />
+Previously this was hard-coded.
+<ol>
+    <li>
+        <ul>
+            <li>Level: BSC</li>
+            <li>Semester: 11th</li>
+            <li>University: American International University-Bangladesh</li>
+            <li>Passing Year: 2023</li>
+        </ul>
+    </li>
+
+    <li>
+        <ul>
+            <li>Level: HSC</li>
+            <li>Institute: B.A.F. Shaheen Collage Dhaka</li>
+            <li>Passed Year: 2018</li>
+        </ul>
+    </li>
+
+    <li>
+        <ul>
+            <li>Level: SSC</li>
+            <li>Institute: Rowshidpur M.L. High School, Gurudashpur, Natore</li>
+            <li>Passed Year: 2016</li>
+        </ul>
+    </li>
+</ol>
+
