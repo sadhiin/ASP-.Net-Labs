@@ -30,13 +30,15 @@
 
 
 <form method="post">
-
+    Name:
     <input type="text" name="Name" class="form-control" value="@(Model != null ? Model.Name :"" )" placeholder="Your Name" />
     <span class="text-danger">@Html.ValidationMessage("Name")</span>
+    <br />
 
+    Username:
     <input type="text" name="Username" value="@(Model != null ? Model.Username : "" )" class="form-control" placeholder="Username" />
     <span class="text-danger">@Html.ValidationMessage("Username")</span>
-
+    
     <br>Gender: <input type="radio" checked="@CheckGender("Male")" name="Gender" value="Male" /> Male
     <input type="radio" name="Gender" checked="@CheckGender("Female")" value="Female" /> Female </br>
     <span class="text-danger">@Html.ValidationMessage("Gender")</span>
