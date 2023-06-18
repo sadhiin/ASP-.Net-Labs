@@ -15,11 +15,14 @@
         return false;
     }
 
-    bool CheckProfession(string prof)
+    bool CheckProfession(string prop)
     {
-        if (Model != null && Model.Profession != null && Model.Profession.Equals(prof))
+        if (Model != null && Model.Profession != null)
         {
-            return true;
+            foreach (var p in Model.Profession)
+            {
+                if (p.Equals(prop)) return true;
+            }
         }
         return false;
     }
@@ -38,18 +41,20 @@
     Username:
     <input type="text" name="Username" value="@(Model != null ? Model.Username : "" )" class="form-control" placeholder="Username" />
     <span class="text-danger">@Html.ValidationMessage("Username")</span>
-    
+
     <br>Gender: <input type="radio" checked="@CheckGender("Male")" name="Gender" value="Male" /> Male
     <input type="radio" name="Gender" checked="@CheckGender("Female")" value="Female" /> Female </br>
     <span class="text-danger">@Html.ValidationMessage("Gender")</span>
 
     <br />Profession:
-    <select class="form-control" name="Profession">
-        <option disabled selected>---Select---</option>
-        <option selected="@CheckProfession("Teacher")">Teacher</option>
-        <option selected="@CheckProfession("Student")">Student</option>
-        <option selected="@CheckProfession("Business")">Business</option>
-    </select>
+    <br />
+    <input type="checkbox" checked="@CheckProfession("Musician")" name="Profession[]" value="Musician" />Musician <br />
+    <input type="checkbox" checked="@CheckProfession("Vloger")" name="Profession[]" value="Vloger" />Vloger <br />
+    <input type="checkbox" checked="@CheckProfession("Student")" name="Profession[]" value="Student" />Student <br />
+    <input type="checkbox" checked="@CheckProfession("Techer")" name="Profession[]" value="Teccher" />Gaming <br />
+    <input type="checkbox" checked="@CheckProfession("Trainer")" name="Profession[]" value="Trainer" />Trainer <br />
+    <input type="checkbox" checked="@CheckProfession("Athlet")" name="Profession[]" value="Athlet" />Athlet <br />
+
     <span class="text-danger">@Html.ValidationMessage("Profession")</span>
 
     <br />

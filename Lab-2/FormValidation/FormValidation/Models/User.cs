@@ -10,7 +10,7 @@ namespace FormValidation.Models
     {
 
         [Required(ErrorMessage = "Please enter your name.")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 3    )]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         [RegularExpression(@"^[a-zA-Z\s\.]*$", ErrorMessage = "Only alphabets, spaces, and dots are allowed in the name.")]
         [Display(Name = "Name")]
         public string Name { get; set; }
@@ -28,7 +28,7 @@ namespace FormValidation.Models
 
 
         [Required]
-        public string Profession { get; set; }
+        public string[] Profession { get; set; }
 
         [Required(ErrorMessage = "Please enter your date of birth.")]
         [DataType(DataType.Date)]
@@ -46,6 +46,5 @@ namespace FormValidation.Models
         [RegularExpression(@"^\d{2}-\d{5}-[1-3]@student\.aiub\.edu$", ErrorMessage = "Invalid Email Address. Format: xx-xxxxx-x@student.aiub.edu")]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
     }
 }
