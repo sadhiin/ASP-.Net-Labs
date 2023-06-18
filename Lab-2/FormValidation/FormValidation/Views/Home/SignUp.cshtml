@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+}
+
+
+@{
+
+    bool CheckGender(string gn)
+    {
+        if (Model != null && Model.Gender != null && Model.Gender.Equals(gn))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    bool CheckProfession(string prof)
+    {
+        if (Model != null && Model.Profession != null && Model.Profession.Equals(prof))
+        {
+            return true;
+        }
+        return false;
+    }
+
+}
+
+<h2>SignUp</h2>
+
+
+<form method="post">
+
+    <input type="text" name="Name" class="form-control" value="@(Model != null ? Model.Name :"" )" placeholder="Your Name" />
+    <span class="text-danger">@Html.ValidationMessage("Name")</span>
+
+    <input type="text" name="Username" value="@(Model != null ? Model.Username : "" )" class="form-control" placeholder="Username" />
+    <span class="text-danger">@Html.ValidationMessage("Username")</span>
+
+    <br>Gender: <input type="radio" checked="@CheckGender("Male")" name="Gender" value="Male" /> Male
+    <input type="radio" name="Gender" checked="@CheckGender("Female")" value="Female" /> Female </br>
+    <span class="text-danger">@Html.ValidationMessage("Gender")</span>
+
+    <br />Profession:
+    <select class="form-control" name="Profession">
+        <option disabled selected>---Select---</option>
+        <option selected="@CheckProfession("Teacher")">Teacher</option>
+        <option selected="@CheckProfession("Student")">Student</option>
+        <option selected="@CheckProfession("Business")">Business</option>
+    </select>
+    <span class="text-danger">@Html.ValidationMessage("Profession")</span>
+
+    <br />
+    Dob: <input type="date" name="Dob" value="@(Model != null ? Model.Dob.Date.ToString("yyyy-MM-dd") : "")" />
+    <br />
+    <span class="text-danger">@Html.ValidationMessage("Dob")</span>
+
+    <br />
+    Student-ID:
+    <input type="text" name="Student_Id" class="form-control" value="@(Model != null ? Model.Student_Id:"")" placeholder="Student ID" />
+    <span class="text-danger">@Html.ValidationMessage("Student_Id")</span>
+
+    <br />
+    Email:
+    <input type="email" name="Email" class="form-control" value="@(Model != null? Model.Email: "")" placeholder="Email" />
+    <span class="text-danger"> @Html.ValidationMessage("Email")</span>
+    <br />
+    <input type="submit" class="btn btn-success" />
+</form>
