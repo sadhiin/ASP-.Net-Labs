@@ -12,16 +12,15 @@ namespace Zero_Hunger.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="Name is required")]
+        [Required(ErrorMessage = "Name is required")]
         [StringLength(50)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage ="Username is required")]
+        [Required(ErrorMessage = "Username is required")]
         [RegularExpression(@"^[a-zA-Z][a-zA-Z0-9._]{2,19}$", ErrorMessage = "Invalid username")]
         public string Username { get; set; }
 
-
-        [Required(ErrorMessage ="Password is required")]
+        [Required(ErrorMessage = "Password is required")]
         [StringLength(32)]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$", ErrorMessage = "Invalid password")]
         public string Password { get; set; }
@@ -29,7 +28,7 @@ namespace Zero_Hunger.Models
         [StringLength(100)]
         public string Address { get; set; }
 
-        [Required(ErrorMessage ="Contract number is required")]
+        [Required(ErrorMessage = "Contract number is required")]
         [RegularExpression(@"^01\d{9}$", ErrorMessage = "Invalid contract number")]
         public string Contract { get; set; }
 
@@ -41,8 +40,8 @@ namespace Zero_Hunger.Models
         // One-to-many relationship with Restaurant
         public virtual ICollection<Restaurant> Restaurants { get; set; }
 
-        // One-to-many relationship with CollectionRecord
-        public virtual ICollection<CollectRequest> CollectionRecords { get; set; }
+        // One-to-many relationship with CollectRequest
+        public virtual ICollection<CollectRequest> CollectionRequests { get; set; }
 
         // One-to-many relationship with DistributionRecord
         public virtual ICollection<DistributionRecord> DistributionRecords { get; set; }
@@ -51,7 +50,7 @@ namespace Zero_Hunger.Models
         {
             Employees = new List<Employee>();
             Restaurants = new List<Restaurant>();
-            CollectionRecords = new List<CollectRequest>();
+            CollectionRequests = new List<CollectRequest>();
             DistributionRecords = new List<DistributionRecord>();
         }
     }

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Web;
 using Zero_Hunger.Models;
 
 namespace Zero_Hunger.Models
 {
-    public class Zero_HungerDbContext: DbContext
+    public class Zero_HungerDbContext : DbContext
     {
         public DbSet<NGO> NGOs { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
@@ -17,53 +18,59 @@ namespace Zero_Hunger.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Configure the one-to-one relationship between CollectRequest and DistributionRecord
-            modelBuilder.Entity<CollectRequest>()
-                .HasOptional(c => c.DistributionRecord)
-                .WithRequired(d => d.CollectionRequest)
-                .Map(m => m.MapKey("CollectRequestId"))
-                .WillCascadeOnDelete(true);
+            // Configure the relationships
 
-            // Configure the other relationships as before
-
-            // NGO-Employee relationship
-            modelBuilder.Entity<NGO>()
-                .HasMany(e => e.Employees)
-                .WithRequired(e => e.NGO)
+            // NGO - Employee (One-to-Many)
+            modelBuilder.Entity<Employee>()
+                .HasRequired(e => e.NGO)
+                .WithMany(n => n.Employees)
                 .HasForeignKey(e => e.NGOId);
 
-            // NGO-Restaurant relationship
-            modelBuilder.Entity<NGO>()
-                .HasMany(r => r.Restaurants)
-                .WithRequired(r => r.NGO)
+            // NGO - Restaurant (One-to-Many)
+            modelBuilder.Entity<Restaurant>()
+                .HasRequired(r => r.NGO)
+                .WithMany(n => n.Restaurants)
                 .HasForeignKey(r => r.NGOId);
 
-            // NGO-CollectionRecord relationship
-            modelBuilder.Entity<NGO>()
-                .HasMany(c => c.CollectionRecords)
-                .WithRequired(c => c.NGO)
-                .HasForeignKey(c => c.NGOId);
+            // NGO - CollectRequest (One-to-Many)
+            modelBuilder.Entity<CollectRequest>()
+                .HasRequired(cr => cr.NGO)
+                .WithMany(n => n.CollectionRequests)
+                .HasForeignKey(cr => cr.NGOId);
 
-            // NGO-DistributionRecord relationship
-            modelBuilder.Entity<NGO>()
-                .HasMany(d => d.DistributionRecords)
-                .WithRequired(d => d.NGO)
-                .HasForeignKey(d => d.NGOId);
+            // NGO - DistributionRecord (One-to-Many)
+            modelBuilder.Entity<DistributionRecord>()
+                .HasRequired(dr => dr.NGO)
+                .WithMany(n => n.DistributionRecords)
+                .HasForeignKey(dr => dr.NGOId);
 
-            // Restaurant-CollectionRecord relationship
-            modelBuilder.Entity<Restaurant>()
-                .HasMany(c => c.CollectionRecords)
-                .WithOptional(c => c.Restaurant)
-                .HasForeignKey(c => c.RestaurantId)
-                .WillCascadeOnDelete(false);
+            // Restaurant - CollectRequest (One-to-Many)
+            modelBuilder.Entity<CollectRequest>()
+                .HasRequired(cr => cr.Restaurant)
+                .WithMany(r => r.CollectionRequests)
+                .HasForeignKey(cr => cr.RestaurantId);
 
-            // Employee-CollectionRecord relationship
-            modelBuilder.Entity<Employee>()
-                .HasMany(c => c.Collection)
-                .WithOptional(c => c.Employee)
-                .HasForeignKey(c => c.EmployeeId);
+            // Employee - CollectRequest (One-to-Many)
+            modelBuilder.Entity<CollectRequest>()
+                .HasRequired(cr => cr.Employee)
+                .WithMany(e => e.Collections)
+                .HasForeignKey(cr => cr.EmployeeId);
 
-            // CollectRequest-DistributionRecord relationship is already configured above
+            // CollectRequest - DistributionRecord (One-to-One)
+            modelBuilder.Entity<DistributionRecord>()
+                .HasRequired(dr => dr.CollectRequest)
+                .WithOptional(cr => cr.DistributionRecord);
+
+            // DistributionRecord - Employee (Many-to-Many)
+            modelBuilder.Entity<DistributionRecord>()
+                .HasMany(dr => dr.Employees)
+                .WithMany(e => e.DistributionRecords)
+                .Map(m =>
+                {
+                    m.ToTable("DistributionRecordEmployees");
+                    m.MapLeftKey("DistributionRecordId");
+                    m.MapRightKey("EmployeeId");
+                });
         }
     }
 }

@@ -18,19 +18,21 @@ namespace Zero_Hunger.Models
         [Required(ErrorMessage = "Distribution Location is required")]
         public string DistributionLocation { get; set; }
 
-
         // ---------------Relations---------------------------
 
         [ForeignKey("NGO")]
         public int NGOId { get; set; }
-        public NGO NGO { get; set; }
 
+        public virtual NGO NGO { get; set; }
+
+        // Many-to-many relationship with Employee
         public virtual ICollection<Employee> Employees { get; set; }
 
-        public int CollectionRequestId { get; set; }
+        public int CollectRequestId { get; set; }
 
-        [ForeignKey("CollectionRequestId")]
-        public virtual CollectRequest CollectionRequest { get; set; }
+        [ForeignKey("CollectRequestId")]
+        public virtual CollectRequest CollectRequest { get; set; }
+
         public DistributionRecord()
         {
             Employees = new List<Employee>();

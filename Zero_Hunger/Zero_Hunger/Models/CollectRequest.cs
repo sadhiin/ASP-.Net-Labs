@@ -11,18 +11,18 @@ namespace Zero_Hunger.Models
     {
         [Key]
         public int CollectRequestId { get; set; }
-        [Required(ErrorMessage = "Maximum preserve time is required")]
+
+        [Required(ErrorMessage = "Maximum preservation time is required")]
         public DateTime MaximumPreservationTime { get; set; }
 
         public int Status { get; set; } // 0: open, 1: accepted, 2: completed
 
-
         //-------------Relation-------------------
 
         // Foreign key to NGO
+        [ForeignKey("NGO")]
         public int NGOId { get; set; }
 
-        [ForeignKey("NGOId")]
         public virtual NGO NGO { get; set; }
 
         public int EmployeeId { get; set; }
@@ -35,6 +35,7 @@ namespace Zero_Hunger.Models
         [ForeignKey("RestaurantId")]
         public virtual Restaurant Restaurant { get; set; }
 
+        // One-to-one relationship with DistributionRecord
         public virtual DistributionRecord DistributionRecord { get; set; }
     }
 }

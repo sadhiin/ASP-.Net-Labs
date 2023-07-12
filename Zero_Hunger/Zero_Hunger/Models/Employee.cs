@@ -12,29 +12,29 @@ namespace Zero_Hunger.Models
         [Key]
         public int EmployeeId { get; set; }
 
-        [Required(ErrorMessage ="Name is required")]
+        [Required(ErrorMessage = "Name is required")]
         [StringLength(50)]
         public string Name { get; set; }
 
         public string Username { get; set; }
 
-        [Required(ErrorMessage ="Contract is required")]
+        [Required(ErrorMessage = "Contract is required")]
         [RegularExpression(@"^01\d{9}$", ErrorMessage = "Invalid contract number. Followed by [01#########]")]
         public string Contract { get; set; }
 
         //----------------Relations--------------------------
 
-
+        [ForeignKey("NGO")]
         public int NGOId { get; set; }
 
-        [ForeignKey("NGOId")]
         public virtual NGO NGO { get; set; }
 
-        public virtual ICollection<CollectRequest> Collection { get; set; }
-
+        public virtual ICollection<CollectRequest> Collections { get; set; }
+        public virtual ICollection<DistributionRecord> DistributionRecords { get; set; }
         public Employee()
         {
-            Collection = new List<CollectRequest>();
+            Collections = new List<CollectRequest>();
+            DistributionRecords = new List<DistributionRecord>();
         }
     }
 }
