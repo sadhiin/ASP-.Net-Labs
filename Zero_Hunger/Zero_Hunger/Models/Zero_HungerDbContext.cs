@@ -56,10 +56,16 @@ namespace Zero_Hunger.Models
                 .WithMany(e => e.Collections)
                 .HasForeignKey(cr => cr.EmployeeId);
 
-            // CollectRequest - DistributionRecord (One-to-One)
-            modelBuilder.Entity<DistributionRecord>()
-                .HasRequired(dr => dr.CollectRequest)
-                .WithOptional(cr => cr.DistributionRecord);
+            //// CollectRequest - DistributionRecord (One-to-One)
+            //modelBuilder.Entity<DistributionRecord>()
+            //    .HasRequired(dr => dr.CollectRequest)
+            //    .WithOptional(cr => cr.DistributionRecord);
+
+            // CollectRequest - DistributionRecord (One-to-Many)
+            //modelBuilder.Entity<DistributionRecord>()
+            //    .HasRequired(dr => dr.CollectRequest)
+            //    .WithOptional(cr => cr.DistributionRecord)
+            //    .HasForeignKey(dr => dr.CollectRequest);
 
             // DistributionRecord - Employee (Many-to-Many)
             modelBuilder.Entity<DistributionRecord>()

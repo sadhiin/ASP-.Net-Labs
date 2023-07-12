@@ -9,9 +9,7 @@ namespace Zero_Hunger.Models
 {
     public class DistributionRecord
     {
-        [Key]
-        public int DistributionRecordId { get; set; }
-
+        
         [Required(ErrorMessage = "Distribution date is required")]
         public DateTime DistributionDate { get; set; }
 
@@ -30,7 +28,7 @@ namespace Zero_Hunger.Models
 
         public int CollectRequestId { get; set; }
 
-        [ForeignKey("CollectRequestId")]
+        [Key, ForeignKey("CollectRequestId")]
         public virtual CollectRequest CollectRequest { get; set; }
 
         public DistributionRecord()
