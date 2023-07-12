@@ -20,22 +20,14 @@ namespace Zero_Hunger.Models
 
         // ---------------Relations---------------------------
 
-        //[ForeignKey("NGO")]
-        //public int NGOId { get; set; }
 
-        //public virtual NGO NGO { get; set; }
+        [ForeignKey("CollectRequest")]
+        public int RequestID { get; set; }  
+        public CollectRequest CollectRequest { get; set; }
 
-        //// Many-to-many relationship with Employee
-        //public virtual ICollection<Employee> Employees { get; set; }
+        [ForeignKey("Employee")]
+        public int EmployeeID { get; set; }
+        public virtual Employee Employee { get; set; }
 
-        //public int CollectRequestId { get; set; }
-
-        //[Key, ForeignKey("CollectRequestId")]
-        //public virtual CollectRequest CollectRequest { get; set; }
-
-        //public DistributionRecord()
-        //{
-        //    Employees = new List<Employee>();
-        //}
     }
 }
