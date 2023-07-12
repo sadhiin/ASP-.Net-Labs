@@ -12,16 +12,19 @@ namespace Zero_Hunger.Models
         [Key]
         public int DistributionRecordId { get; set; }
 
+        [Required(ErrorMessage ="Distribution date is required")]
+        public DateTime DistributionDate { get; set; }
+
+        [Required(ErrorMessage ="Distribution Location is required")]
+        public string DistributionLocation { get; set; }
+
+
         [ForeignKey("CollectRequest")]
         public int CollectRequestId { get; set; }
         public CollectRequest CollectRequest { get; set; }
 
-        [ForeignKey("Employee")]
+        [ForeignKey("Employees")]
         public int EmployeeId { get; set; }
-        public Employee Employee { get; set; }
-
-        public DateTime DistributionDate { get; set; }
-
-        public string DistributionLocation { get; set; }
+        public virtual List<Employee> Employees { get; set; }
     }
 }

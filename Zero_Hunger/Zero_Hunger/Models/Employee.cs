@@ -11,22 +11,16 @@ namespace Zero_Hunger.Models
         [Key]
         public int EmployeeId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Name is required")]
+        [StringLength(50)]
         public string Name { get; set; }
 
-        [Required]
-        public string Contact{ get; set; }
+        public string Username { get; set; }
 
-        // One-to-many relationship with CollectRequest
-        public  List<CollectRequest> CollectRequests { get; set; }
+        [Required(ErrorMessage ="Contract is required")]
+        [RegularExpression(@"^01\d{9}$", ErrorMessage = "Invalid contract number. Followd by [01#########]")]
+        public string Contract { get; set; }
 
-        // One-to-many relationship with DistributionRecord
-        public List<DistributionRecord> DistributionRecords { get; set; }
-
-        public Employee() 
-        { 
-            CollectRequests = new List<CollectRequest>();
-            DistributionRecords = new List<DistributionRecord>();
-        }
+        
     }
 }
