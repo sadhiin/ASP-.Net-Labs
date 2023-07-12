@@ -12,12 +12,15 @@ namespace Zero_Hunger.Models
         [Key]
         public int DistributionRecordId { get; set; }
 
-        [Required(ErrorMessage ="Distribution date is required")]
+        [Required(ErrorMessage = "Distribution date is required")]
         public DateTime DistributionDate { get; set; }
 
-        [Required(ErrorMessage ="Distribution Location is required")]
+        [Required(ErrorMessage = "Distribution Location is required")]
         public string DistributionLocation { get; set; }
 
+        [ForeignKey("CollectRequest")]
+        public int CollectRequestId { get; set; }
+        public virtual CollectRequest CollectRequest { get; set; }
 
         // ---------------Relations---------------------------
 
@@ -25,15 +28,8 @@ namespace Zero_Hunger.Models
         public int NGOId { get; set; }
         public NGO NGO { get; set; }
 
-        // One-to-one relationship with CollectRequest
-        //[Key]
-        [ForeignKey("CollectRequest")]
-        public int CollectRequestId { get; set; }
-        public virtual CollectRequest CollectRequest { get; set; }
-
-
         public virtual ICollection<Employee> Employees { get; set; }
-        
+
         public DistributionRecord()
         {
             Employees = new List<Employee>();
