@@ -46,8 +46,11 @@ namespace Zero_Hunger.Models
 
             modelBuilder.Entity<CollectRequest>()
                 .HasOptional(cr => cr.DistributionRecord)
-                .WithRequired(d => d.CollectRequest)
-                .HasForeignKey(d => d.RequestID);
+                .WithRequired(d => d.CollectRequest);
+
+            //modelBuilder.Entity<DistributionRecord>()
+            //    .HasOptional(c=>c.DistributionId)
+            //    .WithRequired(c=>c.Coll)
 
             base.OnModelCreating(modelBuilder);
         }
