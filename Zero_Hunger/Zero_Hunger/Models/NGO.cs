@@ -29,8 +29,12 @@ namespace Zero_Hunger.Models
         [StringLength(100)]
         public string Address { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Contract number is required")]
         [RegularExpression(@"^01\d{9}$", ErrorMessage = "Invalid contract number")]
         public string Contract { get; set; }
+
+        [ForeignKey("Employees")]
+        public int EmpId { get; set; }
+        public virtual List<Employee> Employees { get; set;}
     }
 }

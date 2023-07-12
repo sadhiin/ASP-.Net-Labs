@@ -131,12 +131,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\CollectRequest.cs" />
     <Compile Include="Models\DistributionRecord.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NGO.cs" />
     <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="Models\Zero_HungerDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

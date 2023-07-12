@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -36,6 +37,11 @@ namespace Zero_Hunger.Models
         [Required]
         [RegularExpression(@"^01\d{9}$", ErrorMessage = "Invalid contract number. Followd by [01#########]")]
         public string Contract { get; set; }
+
+        [ForeignKey("CollectRequests")]
+        public int CollctiontId { get; set; }
+
+        public virtual List<CollectRequest> CollectRequests { get; set; }
 
     }
 }

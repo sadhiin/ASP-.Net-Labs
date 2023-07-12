@@ -19,6 +19,14 @@ namespace Zero_Hunger.Models
         [Required(ErrorMessage ="Maximum preserve time is required")]
         public DateTime MaximumPreservationTime { get; set; }
 
-        public string Status { get; set; } // open, accepted, completed
+        public int Status { get; set; } // 0: open, 1: accepted, 2: completed
+
+        [ForeignKey("Resturent")]
+        public int ResturentId { get; set; }
+        public virtual Restaurant Resturent { get; set; }
+
+        [ForeignKey("Emp")]
+        public int EmpId { get; set; }
+        public virtual Employee Emp { get; set;}
     }
 }
