@@ -16,37 +16,35 @@ namespace Zero_Hunger.Models
         public DbSet<CollectRequest> CollectRequests { get; set; }
         public DbSet<DistributionRecord> DistributionRecords { get; set; }
 
-        public Zero_HungerDbContext():base("DefaultConnection") 
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-        
+            // Configure the relationships between entities
+            modelBuilder.Entity<NGO>()
+                .HasMany(r => r.Employees);
+
+            modelBuilder.Entity<Restaurant>()
+                .HasMany(r => r.CollectRequests)
+                .WithRequired(cr => cr.Restaurant)
+                .HasForeignKey(cr => cr.RestaurantId);
+
+            modelBuilder.Entity<Employee>()
+                .HasMany(e => e.Collection)
+                .WithOptional(cr => cr.Employee)
+                .HasForeignKey(cr => cr.);
+
+            modelBuilder.Entity<Employee>()
+                .HasMany(e => e.DistributionRecords)
+                .WithRequired(dr => dr.Employee)
+                .HasForeignKey(dr => dr.EmployeeId);
+
+            modelBuilder.Entity<CollectRequest>()
+                .HasRequired(c => c.Restaurant)
+                .WithMany()
+                .HasForeignKey(c => c.RestaurantId)
+                .WillCascadeOnDelete(false); // Specify ON DELETE NO ACTION
+
+            base.OnModelCreating(modelBuilder);
         }
-
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    // Configure the relationships between entities
-        //    modelBuilder.Entity<NGO>().HasMany(e => e.Employees).WithRequired;
-
-        //    modelBuilder.Entity<Restaurant>()
-        //        .HasMany(r => r.CollectRequests)
-        //        .WithRequired(cr => cr.Restaurant)
-        //        .HasForeignKey(cr => cr.RestaurantId);
-
-        //    modelBuilder.Entity<Employee>()
-        //        .HasMany(e => e.CollectRequests)
-        //        .WithOptional(cr => cr.Employee)
-        //        .HasForeignKey(cr => cr.EmployeeId);
-
-        //    modelBuilder.Entity<Employee>()
-        //        .HasMany(e => e.DistributionRecords)
-        //        .WithRequired(dr => dr.Employee)
-        //        .HasForeignKey(dr => dr.EmployeeId);
-
-        //    modelBuilder.Entity<CollectRequest>()
-        //            .HasOptional(cr => cr.CollectRequestId)
-        //            .WithRequired(dr => dr.CollectRequest)
-        //            .WillCascadeOnDelete(false);
-
-        //    base.OnModelCreating(modelBuilder);
-        //}
     }
 }

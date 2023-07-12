@@ -83,3 +83,4 @@ C:\Users\Sadhin\source\repos\Labs\Others\codefirstEF\codefirstEF\obj\Debug\codef
 C:\Users\Sadhin\source\repos\Labs\Others\codefirstEF\codefirstEF\obj\Debug\codefirstEF.pdb
 C:\Users\Sadhin\source\repos\Labs\Others\codefirstEF\codefirstEF\obj\Debug\codefirstEF.Migrations.InitialDataBase.resources
 C:\Users\Sadhin\source\repos\Labs\Others\codefirstEF\codefirstEF\obj\Debug\codefirstEF.csproj.GenerateResource.cache
+C:\Users\Sadhin\source\repos\Labs\Others\codefirstEF\codefirstEF\obj\Debug\codefirstEF.Migrations.UserEmailadded.resources

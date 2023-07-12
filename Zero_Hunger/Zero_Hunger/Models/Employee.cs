@@ -22,13 +22,18 @@ namespace Zero_Hunger.Models
         [RegularExpression(@"^01\d{9}$", ErrorMessage = "Invalid contract number. Followed by [01#########]")]
         public string Contract { get; set; }
 
+        //----------------Relations--------------------------
+
+
         [ForeignKey("NGO")]
         public int NGOId { get; set; }
         public virtual NGO NGO { get; set; }
 
-        [ForeignKey("Collection")]
-        public int CollectionReuestId { get; set; }
-        public virtual List<CollectRequest> Collection { get; set; }
+        public virtual ICollection<CollectRequest> Collection { get; set; }
 
+        public Employee()
+        {
+            Collection = new List<CollectRequest>();
+        }
     }
 }

@@ -19,12 +19,17 @@ namespace Zero_Hunger.Models
         public string DistributionLocation { get; set; }
 
 
+        // ---------------Relations---------------------------
+
         [ForeignKey("CollectRequest")]
         public int CollectRequestId { get; set; }
         public CollectRequest CollectRequest { get; set; }
 
-        [ForeignKey("Employees")]
-        public int EmployeeId { get; set; }
-        public virtual List<Employee> Employees { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
+        
+        public DistributionRecord()
+        {
+            Employees = new List<Employee>();
+        }
     }
 }

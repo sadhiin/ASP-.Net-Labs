@@ -19,6 +19,7 @@ namespace codefirstEF.EF.Models
         [StringLength(32)]
         public string Password { get; set;}
 
-
+        [Required(ErrorMessage ="Email is required")]
+        public string Email { get; set;}    
     }
 }

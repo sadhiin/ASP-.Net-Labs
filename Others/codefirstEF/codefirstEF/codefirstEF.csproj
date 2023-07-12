@@ -139,6 +139,10 @@
     <Compile Include="Migrations\202307101616149_InitialDataBase.designer.cs">
       <DependentUpon>202307101616149_InitialDataBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307121256377_UserEmailadded.cs" />
+    <Compile Include="Migrations\202307121256377_UserEmailadded.designer.cs">
+      <DependentUpon>202307121256377_UserEmailadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -227,6 +231,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202307101616149_InitialDataBase.resx">
       <DependentUpon>202307101616149_InitialDataBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307121256377_UserEmailadded.resx">
+      <DependentUpon>202307121256377_UserEmailadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

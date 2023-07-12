@@ -20,6 +20,8 @@ namespace Zero_Hunger.Models
         public DateTime MaximumPreservationTime { get; set; }
 
         public int Status { get; set; } // 0: open, 1: accepted, 2: completed
+        
+        //-------------Relations-------------------
 
         [ForeignKey("Resturent")]
         public int ResturentId { get; set; }

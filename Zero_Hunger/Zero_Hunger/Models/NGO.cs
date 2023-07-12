@@ -33,8 +33,26 @@ namespace Zero_Hunger.Models
         [RegularExpression(@"^01\d{9}$", ErrorMessage = "Invalid contract number")]
         public string Contract { get; set; }
 
-        [ForeignKey("Employees")]
-        public int EmpId { get; set; }
-        public virtual List<Employee> Employees { get; set;}
+        //----------------Relations--------------------------
+
+        // One-to-many relationship with Employee
+        public virtual ICollection<Employee> Employees { get; set; }
+
+        // One-to-many relationship with Restaurant
+        public virtual ICollection<Restaurant> Restaurants { get; set; }
+
+        // One-to-many relationship with CollectionRecord
+        public virtual ICollection<CollectRequest> CollectionRecords { get; set; }
+
+        // One-to-many relationship with DistributionRecord
+        public virtual ICollection<DistributionRecord> DistributionRecords { get; set; }
+
+        public NGO()
+        {
+            Employees = new List<Employee>();
+            Restaurants = new List<Restaurant>();
+            CollectionRecords = new List<CollectRequest>();
+            DistributionRecords = new List<DistributionRecord>();
+        }
     }
 }
