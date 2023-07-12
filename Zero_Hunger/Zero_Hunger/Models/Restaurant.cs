@@ -41,17 +41,17 @@ namespace Zero_Hunger.Models
         //----------------Relations--------------------------
 
         // Foreign key to NGO
-        [ForeignKey("NGO")]
-        public int NGOId { get; set; }
+        //[ForeignKey("NGO")]
+        //public int NGOId { get; set; }
 
-        public virtual NGO NGO { get; set; }
+        //public virtual NGO NGO { get; set; }
 
-        // One-to-many relationship with CollectRequest
-        public virtual ICollection<CollectRequest> CollectionRequests { get; set; }
+        //// One-to-many relationship with CollectRequest
+        //public virtual ICollection<CollectRequest> CollectionRequests { get; set; }
 
-        public Restaurant()
-        {
-            CollectionRequests = new List<CollectRequest>();
-        }
+        //public Restaurant()
+        //{
+        //    CollectionRequests = new List<CollectRequest>();
+        //}
     }
 }

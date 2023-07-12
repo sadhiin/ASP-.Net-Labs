@@ -20,22 +20,22 @@ namespace Zero_Hunger.Models
         //-------------Relation-------------------
 
         // Foreign key to NGO
-        [ForeignKey("NGO")]
-        public int NGOId { get; set; }
+        //[ForeignKey("NGO")]
+        //public int NGOId { get; set; }
 
-        public virtual NGO NGO { get; set; }
+        //public virtual NGO NGO { get; set; }
 
-        public int EmployeeId { get; set; }
+        //public int EmployeeId { get; set; }
 
-        [ForeignKey("EmployeeId")]
-        public virtual Employee Employee { get; set; }
+        //[ForeignKey("EmployeeId")]
+        //public virtual Employee Employee { get; set; }
 
-        public int RestaurantId { get; set; }
+        //public int RestaurantId { get; set; }
 
-        [ForeignKey("RestaurantId")]
-        public virtual Restaurant Restaurant { get; set; }
+        //[ForeignKey("RestaurantId")]
+        //public virtual Restaurant Restaurant { get; set; }
 
-        // One-to-one relationship with DistributionRecord
-        public virtual DistributionRecord DistributionRecord { get; set; }
+        //// One-to-one relationship with DistributionRecord
+        //public virtual DistributionRecord DistributionRecord { get; set; }
     }
 }

@@ -16,11 +16,9 @@ namespace Zero_Hunger.Models
         public DbSet<CollectRequest> CollectRequests { get; set; }
         public DbSet<DistributionRecord> DistributionRecords { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<CollectRequest>()
-                .HasOptional(cr => cr.DistributionRecord)
-                .WithRequired(dr => dr.CollectRequest);
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+           
 
             // Configure the relationships
 
@@ -81,6 +79,6 @@ namespace Zero_Hunger.Models
             //        m.MapLeftKey("DistributionRecordId");
             //        m.MapRightKey("EmployeeId");
             //    });
-        }
+        //}
     }
 }

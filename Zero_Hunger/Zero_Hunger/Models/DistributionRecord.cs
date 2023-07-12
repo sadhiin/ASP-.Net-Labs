@@ -9,7 +9,9 @@ namespace Zero_Hunger.Models
 {
     public class DistributionRecord
     {
-        
+
+        [Key]
+        public int DistributionId { get; set; }
         [Required(ErrorMessage = "Distribution date is required")]
         public DateTime DistributionDate { get; set; }
 
@@ -18,22 +20,22 @@ namespace Zero_Hunger.Models
 
         // ---------------Relations---------------------------
 
-        [ForeignKey("NGO")]
-        public int NGOId { get; set; }
+        //[ForeignKey("NGO")]
+        //public int NGOId { get; set; }
 
-        public virtual NGO NGO { get; set; }
+        //public virtual NGO NGO { get; set; }
 
-        // Many-to-many relationship with Employee
-        public virtual ICollection<Employee> Employees { get; set; }
+        //// Many-to-many relationship with Employee
+        //public virtual ICollection<Employee> Employees { get; set; }
 
-        public int CollectRequestId { get; set; }
+        //public int CollectRequestId { get; set; }
 
-        [Key, ForeignKey("CollectRequestId")]
-        public virtual CollectRequest CollectRequest { get; set; }
+        //[Key, ForeignKey("CollectRequestId")]
+        //public virtual CollectRequest CollectRequest { get; set; }
 
-        public DistributionRecord()
-        {
-            Employees = new List<Employee>();
-        }
+        //public DistributionRecord()
+        //{
+        //    Employees = new List<Employee>();
+        //}
     }
 }
