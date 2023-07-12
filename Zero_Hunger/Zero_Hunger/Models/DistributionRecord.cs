@@ -21,9 +21,16 @@ namespace Zero_Hunger.Models
 
         // ---------------Relations---------------------------
 
+        [ForeignKey("NGO")]
+        public int NGOId { get; set; }
+        public NGO NGO { get; set; }
+
+        // One-to-one relationship with CollectRequest
+        //[Key]
         [ForeignKey("CollectRequest")]
         public int CollectRequestId { get; set; }
-        public CollectRequest CollectRequest { get; set; }
+        public virtual CollectRequest CollectRequest { get; set; }
+
 
         public virtual ICollection<Employee> Employees { get; set; }
         

@@ -19,32 +19,47 @@ namespace Zero_Hunger.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // Configure the relationships between entities
+            // NGO-Employee relationship
             modelBuilder.Entity<NGO>()
-                .HasMany(r => r.Employees);
+                .HasMany(e => e.Employees)                    // NGO has many Employees
+                .WithRequired(e => e.NGO)                      // An Employee is required to have an NGO
+                .HasForeignKey(e => e.NGOId);                   // Foreign key property in Employee class
 
+            // NGO-Restaurant relationship
+            modelBuilder.Entity<NGO>()
+                .HasMany(r => r.Restaurants)                   // NGO has many Restaurants
+                .WithRequired(r => r.NGO)                      // A Restaurant is required to have an NGO
+                .HasForeignKey(r => r.NGOId);                   // Foreign key property in Restaurant class
+
+            // NGO-CollectionRecord relationship
+            modelBuilder.Entity<NGO>()
+                .HasMany(c => c.CollectionRecords)             // NGO has many CollectionRecords
+                .WithRequired(c => c.NGO)                       // A CollectionRecord is required to have an NGO
+                .HasForeignKey(c => c.NGOId);                    // Foreign key property in CollectionRecord class
+
+            // NGO-DistributionRecord relationship
+            modelBuilder.Entity<NGO>()
+                .HasMany(d => d.DistributionRecords)            // NGO has many DistributionRecords
+                .WithRequired(d => d.NGO)                       // A DistributionRecord is required to have an NGO
+                .HasForeignKey(d => d.NGOId);                    // Foreign key property in DistributionRecord class
+
+            // Restaurant-CollectionRecord relationship
             modelBuilder.Entity<Restaurant>()
-                .HasMany(r => r.CollectRequests)
-                .WithRequired(cr => cr.Restaurant)
-                .HasForeignKey(cr => cr.RestaurantId);
+                .HasMany(c => c.CollectionRecords)             // Restaurant has many CollectionRecords
+                .WithOptional(c => c.Restaurant)                // A CollectionRecord may or may not have a Restaurant
+                .HasForeignKey(c => c.RestaurantId);             // Foreign key property in CollectionRecord class
 
+            // Employee-CollectionRecord relationship
             modelBuilder.Entity<Employee>()
-                .HasMany(e => e.Collection)
-                .WithOptional(cr => cr.Employee)
-                .HasForeignKey(cr => cr.);
+                .HasMany(c => c.Collection)             // Employee has many CollectionRecords
+                .WithOptional(c => c.Employee)                  // A CollectionRecord may or may not have an Employee
+                .HasForeignKey(c => c.EmployeeId);               // Foreign key property in CollectionRecord class
 
-            modelBuilder.Entity<Employee>()
-                .HasMany(e => e.DistributionRecords)
-                .WithRequired(dr => dr.Employee)
-                .HasForeignKey(dr => dr.EmployeeId);
-
+            // CollectRequest-DistributionRecord relationship
             modelBuilder.Entity<CollectRequest>()
-                .HasRequired(c => c.Restaurant)
-                .WithMany()
-                .HasForeignKey(c => c.RestaurantId)
-                .WillCascadeOnDelete(false); // Specify ON DELETE NO ACTION
-
-            base.OnModelCreating(modelBuilder);
+                .HasOptional(c => c.DistributionRecord)                    // A CollectRequest may or may not have a DistributionRecord
+                .WithRequired(d => d.CollectRequest)                       // A DistributionRecord is required to have a CollectRequest
+                .WillCascadeOnDelete(true);                                // Cascade delete 
         }
     }
 }
