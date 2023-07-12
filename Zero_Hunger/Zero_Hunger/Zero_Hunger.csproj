@@ -135,6 +135,10 @@
     <Compile Include="Migrations\202307122058307_DbInIt.designer.cs">
       <DependentUpon>202307122058307_DbInIt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307122106317_NGO_EMP_RESTAURENT_Relations.cs" />
+    <Compile Include="Migrations\202307122106317_NGO_EMP_RESTAURENT_Relations.designer.cs">
+      <DependentUpon>202307122106317_NGO_EMP_RESTAURENT_Relations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CollectRequest.cs" />
     <Compile Include="Models\DistributionRecord.cs" />
@@ -229,6 +233,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202307122058307_DbInIt.resx">
       <DependentUpon>202307122058307_DbInIt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307122106317_NGO_EMP_RESTAURENT_Relations.resx">
+      <DependentUpon>202307122106317_NGO_EMP_RESTAURENT_Relations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

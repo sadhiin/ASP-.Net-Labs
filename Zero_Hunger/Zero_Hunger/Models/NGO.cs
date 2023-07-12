@@ -34,24 +34,24 @@ namespace Zero_Hunger.Models
 
         //----------------Relations--------------------------
 
-        //// One-to-many relationship with Employee
-        //public virtual ICollection<Employee> Employees { get; set; }
+        // One-to-many relationship with Employee
+        public virtual ICollection<Employee> Employees { get; set; }
 
-        //// One-to-many relationship with Restaurant
-        //public virtual ICollection<Restaurant> Restaurants { get; set; }
+        // One-to-many relationship with Restaurant
+        public virtual ICollection<Restaurant> Restaurants { get; set; }
 
-        //// One-to-many relationship with CollectRequest
-        //public virtual ICollection<CollectRequest> CollectionRequests { get; set; }
+        // One-to-many relationship with CollectRequest
+        public virtual ICollection<CollectRequest> CollectionRequests { get; set; }
 
-        //// One-to-many relationship with DistributionRecord
-        //public virtual ICollection<DistributionRecord> DistributionRecords { get; set; }
+        // One-to-many relationship with DistributionRecord
+        public virtual ICollection<DistributionRecord> DistributionRecords { get; set; }
 
-        //public NGO()
-        //{
-        //    Employees = new List<Employee>();
-        //    Restaurants = new List<Restaurant>();
-        //    CollectionRequests = new List<CollectRequest>();
-        //    DistributionRecords = new List<DistributionRecord>();
-        //}
+        public NGO()
+        {
+            Employees = new List<Employee>();
+            Restaurants = new List<Restaurant>();
+            CollectionRequests = new List<CollectRequest>();
+            DistributionRecords = new List<DistributionRecord>();
+        }
     }
 }
