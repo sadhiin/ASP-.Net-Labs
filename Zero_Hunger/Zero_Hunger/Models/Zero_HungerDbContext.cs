@@ -20,7 +20,7 @@ namespace Zero_Hunger.Models
             // Configure the one-to-one relationship between CollectRequest and DistributionRecord
             modelBuilder.Entity<CollectRequest>()
                 .HasOptional(c => c.DistributionRecord)
-                .WithRequired(d => d.CollectRequest)
+                .WithRequired(d => d.CollectionRequest)
                 .Map(m => m.MapKey("CollectRequestId"))
                 .WillCascadeOnDelete(true);
 
@@ -54,7 +54,8 @@ namespace Zero_Hunger.Models
             modelBuilder.Entity<Restaurant>()
                 .HasMany(c => c.CollectionRecords)
                 .WithOptional(c => c.Restaurant)
-                .HasForeignKey(c => c.RestaurantId);
+                .HasForeignKey(c => c.RestaurantId)
+                .WillCascadeOnDelete(false);
 
             // Employee-CollectionRecord relationship
             modelBuilder.Entity<Employee>()

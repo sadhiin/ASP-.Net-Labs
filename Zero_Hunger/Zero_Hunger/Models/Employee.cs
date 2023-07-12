@@ -25,8 +25,9 @@ namespace Zero_Hunger.Models
         //----------------Relations--------------------------
 
 
-        [ForeignKey("NGO")]
         public int NGOId { get; set; }
+
+        [ForeignKey("NGOId")]
         public virtual NGO NGO { get; set; }
 
         public virtual ICollection<CollectRequest> Collection { get; set; }

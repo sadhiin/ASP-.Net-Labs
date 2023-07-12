@@ -18,7 +18,6 @@ namespace Zero_Hunger.Models
         [Required(ErrorMessage = "Distribution Location is required")]
         public string DistributionLocation { get; set; }
 
-        public virtual CollectRequest CollectRequest { get; set; }
 
         // ---------------Relations---------------------------
 
@@ -28,6 +27,10 @@ namespace Zero_Hunger.Models
 
         public virtual ICollection<Employee> Employees { get; set; }
 
+        public int CollectionRequestId { get; set; }
+
+        [ForeignKey("CollectionRequestId")]
+        public virtual CollectRequest CollectionRequest { get; set; }
         public DistributionRecord()
         {
             Employees = new List<Employee>();

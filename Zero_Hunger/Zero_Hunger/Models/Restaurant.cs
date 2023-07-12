@@ -35,13 +35,14 @@ namespace Zero_Hunger.Models
         public string Address { get; set; }
 
         [Required]
-        [RegularExpression(@"^01\d{9}$", ErrorMessage = "Invalid contract number. Followd by [01#########]")]
+        [RegularExpression(@"^01\d{9}$", ErrorMessage = "Invalid contract number. Followed by [01#########]")]
         public string Contract { get; set; }
 
         //----------------Relations--------------------------
 
         // Foreign key to NGO
         public int NGOId { get; set; }
+
         [ForeignKey("NGOId")]
         public virtual NGO NGO { get; set; }
 
