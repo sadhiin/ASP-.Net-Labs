@@ -18,8 +18,6 @@ namespace Zero_Hunger.Models
         [Required(ErrorMessage = "Distribution Location is required")]
         public string DistributionLocation { get; set; }
 
-        [ForeignKey("CollectRequest")]
-        public int CollectRequestId { get; set; }
         public virtual CollectRequest CollectRequest { get; set; }
 
         // ---------------Relations---------------------------
