@@ -209,12 +209,12 @@
     <Content Include="Views\Home\NGOLogin.cshtml" />
     <Content Include="Views\Home\RestaurantLogin.cshtml" />
     <Content Include="Views\Home\RestaurantSignup.cshtml" />
-    <Content Include="Views\NGODashboard\Index.cshtml" />
     <Content Include="Views\Home\EmployeeLogin.cshtml" />
     <Content Include="Views\NGODashboard\Create.cshtml" />
     <Content Include="Views\Shared\_NGOLayout.cshtml" />
     <Content Include="Views\Shared\_RestaturentLayout.cshtml" />
     <Content Include="Views\Shared\_EmployeeLayout.cshtml" />
+    <Content Include="Views\NGODashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

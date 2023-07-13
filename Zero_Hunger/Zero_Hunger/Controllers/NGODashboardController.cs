@@ -21,9 +21,33 @@ namespace Zero_Hunger.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Employee model) { 
+        public ActionResult Create(Employee model) 
+        { 
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    _db = new Zero_HungerDbContext();
+                    _db.Employees.Add(model);
+                    _db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message.ToString());
+                }
+            }
+            return RedirectToAction("Index");
+        }
 
-            return View();
+        public ActionResult EditEmp(int Id)
+        {
+            // have to implement the edit login
+            return RedirectToAction("Index");
+        }
+        public ActionResult DeleteEmp(int Id)
+        {
+            // have to implement the delete logic
+            return RedirectToAction("Index");
         }
     }
 }

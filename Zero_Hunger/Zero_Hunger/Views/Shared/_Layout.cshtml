@@ -1,6 +1,6 @@
 ﻿@{ 
     bool isLogedIn = true;
-    if (string.IsNullOrWhiteSpace(User.Identity.Name) || Session["Username"]==null)
+    if (Session["Username"] == null)
     {
         isLogedIn = false;
     }
