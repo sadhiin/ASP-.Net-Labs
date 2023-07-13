@@ -83,3 +83,4 @@ C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.pdb
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.FreshDBInIt.resources
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.csproj.GenerateResource.cache
+C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.EmployeeCollctionDistributionAdd.resources

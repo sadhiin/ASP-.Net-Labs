@@ -135,17 +135,16 @@
     <Compile Include="Migrations\202307122358516_FreshDBInIt.designer.cs">
       <DependentUpon>202307122358516_FreshDBInIt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307130059312_EmployeeCollctionDistributionAdd.cs" />
+    <Compile Include="Migrations\202307130059312_EmployeeCollctionDistributionAdd.designer.cs">
+      <DependentUpon>202307130059312_EmployeeCollctionDistributionAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CollectionRequest.cs" />
     <Compile Include="Models\Distribution.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NGO.cs" />
     <Compile Include="Models\Restaurant.cs" />
-    <Compile Include="old\_CollectRequest.cs" />
-    <Compile Include="old\_DistributionRecord.cs" />
-    <Compile Include="old\_Employee.cs" />
-    <Compile Include="old\_NGO.cs" />
-    <Compile Include="old\_Restaurant.cs" />
     <Compile Include="Models\Zero_HungerDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -234,6 +233,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202307122358516_FreshDBInIt.resx">
       <DependentUpon>202307122358516_FreshDBInIt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307130059312_EmployeeCollctionDistributionAdd.resx">
+      <DependentUpon>202307130059312_EmployeeCollctionDistributionAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

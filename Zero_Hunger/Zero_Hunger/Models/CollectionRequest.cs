@@ -16,15 +16,21 @@ namespace Zero_Hunger.Models
         public string CollectionRequestName { get; set; }
 
         public DateTime CreationDate { get; set; }
+
         [Required]
         public DateTime MaxTimeToPreserve { get; set; }
-        
+
         public string Status { get; set; }
 
-        [ForeignKey("Restaurant")]
         public int RestaurantId { get; set; }
+        public int EmpId { get; set; }
+
+        [ForeignKey("RestaurantId")]
         public virtual Restaurant Restaurant { get; set; }
+
+        [ForeignKey("EmpId")]
         public virtual Employee Employee { get; set; }
+
         public virtual Distribution Distribution { get; set; }
     }
 }

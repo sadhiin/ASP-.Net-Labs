@@ -12,14 +12,22 @@ namespace Zero_Hunger.Models
         [Key]
         public int EmployeeId { get; set; }
         public string Name { get; set; }
+
+        [Required]
         public string UserName { get; set; }
+        [Required]
+        public string Password { get; set; }
+        [Required]
         public string Contract { get; set; }
 
 
-        [ForeignKey("Request")]
-        public int RequestId { get; set; }
-        public CollectionRequest Request { get; set; }
         public virtual ICollection<CollectionRequest> CollectionRequests { get; set; }
         public virtual ICollection<Distribution> Distributions { get; set; }
+
+        public Employee() 
+        { 
+            CollectionRequests = new List<CollectionRequest>();
+            Distributions = new List<Distribution>();
+        }
     }
 }

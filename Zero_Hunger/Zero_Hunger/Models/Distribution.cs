@@ -12,15 +12,17 @@ namespace Zero_Hunger.Models
         [Key]
         public int DistributionId { get; set; }
 
-        [ForeignKey("Employee")] 
-        public int EmployeeId { get; set; }
-        [ForeignKey("CollectionRequest")]
-        public int RequestId { get; set; }
+        public int? EmployeeId { get; set; }
+        public int? CollectionRequestId { get; set; }
+
         public DateTime DistributionTime { get; set; }
         public string Location { get; set; }
         public string Status { get; set; }
 
+        [ForeignKey("EmployeeId")]
         public virtual Employee Employee { get; set; }
+
+        [ForeignKey("CollectionRequestId")]
         public virtual CollectionRequest CollectionRequest { get; set; }
     }
 }
