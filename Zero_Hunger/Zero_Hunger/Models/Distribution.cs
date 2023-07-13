@@ -17,7 +17,7 @@ namespace Zero_Hunger.Models
 
         public DateTime DistributionTime { get; set; }
         public string Location { get; set; }
-        public string Status { get; set; }
+        public int Status { get; set; }
 
         [ForeignKey("EmployeeId")]
         public virtual Employee Employee { get; set; }

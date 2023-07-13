@@ -20,7 +20,7 @@ namespace Zero_Hunger.Models
         [Required]
         public DateTime MaxTimeToPreserve { get; set; }
 
-        public string Status { get; set; }
+        public int Status { get; set; }
 
         public int RestaurantId { get; set; }
         public int EmpId { get; set; }

@@ -12,7 +12,7 @@ namespace Zero_Hunger.Controllers
         {
             return View();
         }
-
+        [Route("users/about")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -23,6 +23,21 @@ namespace Zero_Hunger.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+        public ActionResult LogOut()
+        {
 
             return View();
         }
