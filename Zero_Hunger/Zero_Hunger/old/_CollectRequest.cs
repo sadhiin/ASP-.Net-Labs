@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Zero_Hunger.Models
 {
-    public class CollectRequest
+    public class _CollectRequest
     {
         [Key]
         public int CollectRequestId { get; set; }
@@ -24,14 +24,14 @@ namespace Zero_Hunger.Models
         [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
 
-        public virtual Employee Employee { get; set; }
+        public virtual _Employee Employee { get; set; }
 
         [ForeignKey("Restaurant")]
         public int RestaurantId { get; set; }
 
-        public virtual Restaurant Restaurant { get; set; }
+        public virtual _Restaurant Restaurant { get; set; }
 
         //// One-to-one relationship with DistributionRecord
-        public virtual DistributionRecord DistributionRecord { get; set; }
+        public virtual _DistributionRecord DistributionRecord { get; set; }
     }
 }

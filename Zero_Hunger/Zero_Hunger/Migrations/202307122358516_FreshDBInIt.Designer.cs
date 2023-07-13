@@ -7,13 +7,13 @@ namespace Zero_Hunger.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class DbInIt : IMigrationMetadata
+    public sealed partial class FreshDBInIt : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DbInIt));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FreshDBInIt));
         
         string IMigrationMetadata.Id
         {
-            get { return "202307122058307_DbInIt"; }
+            get { return "202307122358516_FreshDBInIt"; }
         }
         
         string IMigrationMetadata.Source

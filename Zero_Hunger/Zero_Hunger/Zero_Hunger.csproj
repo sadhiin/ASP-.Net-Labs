@@ -131,20 +131,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202307122058307_DbInIt.cs" />
-    <Compile Include="Migrations\202307122058307_DbInIt.designer.cs">
-      <DependentUpon>202307122058307_DbInIt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202307122106317_NGO_EMP_RESTAURENT_Relations.cs" />
-    <Compile Include="Migrations\202307122106317_NGO_EMP_RESTAURENT_Relations.designer.cs">
-      <DependentUpon>202307122106317_NGO_EMP_RESTAURENT_Relations.cs</DependentUpon>
+    <Compile Include="Migrations\202307122358516_FreshDBInIt.cs" />
+    <Compile Include="Migrations\202307122358516_FreshDBInIt.designer.cs">
+      <DependentUpon>202307122358516_FreshDBInIt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CollectRequest.cs" />
-    <Compile Include="Models\DistributionRecord.cs" />
+    <Compile Include="Models\CollectionRequest.cs" />
+    <Compile Include="Models\Distribution.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\NGO.cs" />
     <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="old\_CollectRequest.cs" />
+    <Compile Include="old\_DistributionRecord.cs" />
+    <Compile Include="old\_Employee.cs" />
+    <Compile Include="old\_NGO.cs" />
+    <Compile Include="old\_Restaurant.cs" />
     <Compile Include="Models\Zero_HungerDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -231,11 +232,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202307122058307_DbInIt.resx">
-      <DependentUpon>202307122058307_DbInIt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307122106317_NGO_EMP_RESTAURENT_Relations.resx">
-      <DependentUpon>202307122106317_NGO_EMP_RESTAURENT_Relations.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202307122358516_FreshDBInIt.resx">
+      <DependentUpon>202307122358516_FreshDBInIt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
