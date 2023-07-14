@@ -34,7 +34,10 @@ namespace Zero_Hunger.Controllers
         [HttpGet]
         public ActionResult NGOLogin()
         {
-            
+            if (Session["username"] != null)
+            {
+                return RedirectToAction("Index", "NGODashboard");
+            }
             return View();
         }
 
@@ -55,7 +58,7 @@ namespace Zero_Hunger.Controllers
                         x => x.UserName.Equals(model.UserName) &&
                         x.Password.Equals(model.Password));
 
-                    Session["Name"] = CurrentNGO.UserName;
+                    Session["username"] = CurrentNGO.UserName.ToString();
 
                     FormsAuthentication.SetAuthCookie(CurrentNGO.UserName, false);
                     return RedirectToAction("Index", "NGODashboard");
@@ -69,6 +72,10 @@ namespace Zero_Hunger.Controllers
         [HttpGet]
         public ActionResult RestaurantLogin()
         {
+            if (Session["username"]!=null)
+            {
+                return RedirectToAction("Index", "RestaurentDashboard");
+            }
             return View();
         }
 
@@ -90,7 +97,8 @@ namespace Zero_Hunger.Controllers
                         x => x.UserName.Equals(model.UserName) &&
                         x.Password.Equals(model.Password));
 
-                    Session["username"] = restaurant.UserName;
+                    Session["username"] = restaurant.UserName.ToString();
+                    Session["name"] = restaurant.RestaurantName.ToString();
                     FormsAuthentication.SetAuthCookie(restaurant.UserName, false);
                 }
                 ModelState.AddModelError("", "Username or Password is wrong");
@@ -117,7 +125,7 @@ namespace Zero_Hunger.Controllers
                     x => x.UserName.Equals(model.UserName));
                 if (Exists == true)
                 {
-                    ViewBag.UserExists = "User already exists. Try to login";
+                    ModelState.AddModelError("","User already exists. Try to login");
                     return View();
                 }
                 else
@@ -135,6 +143,10 @@ namespace Zero_Hunger.Controllers
         [HttpGet]
         public ActionResult EmployeeLogin()
         {
+            if (Session["username"] != null)
+            {
+                return RedirectToAction("Index", "EmployeeDashboard");
+            }
             return View();
         }
 
@@ -154,19 +166,25 @@ namespace Zero_Hunger.Controllers
                         x => x.UserName.Equals(model.UserName) &&
                         x.Password.Equals(model.Password));
 
-                    Session["username"] = emp.UserName;
+                    Session["username"] = emp.UserName.ToString();
+                    Session["name"] = emp.Name.ToString();
                     FormsAuthentication.SetAuthCookie(emp.UserName, false);
                 }
             }
             return View(model);
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult SignOut()
         {
-            FormsAuthentication.SignOut();
-            Session.Abandon();
-            return RedirectToAction("Index");
+            if (Session["username"] != null)
+            {
+                FormsAuthentication.SignOut();
+                Session.Clear();
+                Session.Abandon();
+                return RedirectToAction("Index");
+            }
+            return View("Index");
         }
     }
 }

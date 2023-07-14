@@ -146,6 +146,14 @@
     <Compile Include="Migrations\202307130104276_StatusDataTypeChanged.designer.cs">
       <DependentUpon>202307130104276_StatusDataTypeChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307140338520_NGOpasswordDatatypedeclared.cs" />
+    <Compile Include="Migrations\202307140338520_NGOpasswordDatatypedeclared.designer.cs">
+      <DependentUpon>202307140338520_NGOpasswordDatatypedeclared.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202307140443539_NGOEmpMissingRelationAdded.cs" />
+    <Compile Include="Migrations\202307140443539_NGOEmpMissingRelationAdded.designer.cs">
+      <DependentUpon>202307140443539_NGOEmpMissingRelationAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CollectionRequest.cs" />
     <Compile Include="Models\Distribution.cs" />
@@ -215,6 +223,8 @@
     <Content Include="Views\Shared\_RestaturentLayout.cshtml" />
     <Content Include="Views\Shared\_EmployeeLayout.cshtml" />
     <Content Include="Views\NGODashboard\Index.cshtml" />
+    <Content Include="Views\NGODashboard\EditEmp.cshtml" />
+    <Content Include="Views\NGODashboard\DeleteEmp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202307130104276_StatusDataTypeChanged.resx">
       <DependentUpon>202307130104276_StatusDataTypeChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307140338520_NGOpasswordDatatypedeclared.resx">
+      <DependentUpon>202307140338520_NGOpasswordDatatypedeclared.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307140443539_NGOEmpMissingRelationAdded.resx">
+      <DependentUpon>202307140443539_NGOEmpMissingRelationAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

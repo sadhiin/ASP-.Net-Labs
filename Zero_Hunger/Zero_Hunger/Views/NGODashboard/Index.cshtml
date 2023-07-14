@@ -5,11 +5,35 @@
     Layout = "~/Views/Shared/_NGOLayout.cshtml";
 }
 
+
 <h2>Current Employees</h2>
-<h2>@Session["username"]</h2>
+@*<h2>@Session["username"]</h2>*@
 <p>
-    @Html.ActionLink("New Employee", "Create")
+    @Html.ActionLink("New Employee", "Create", "NGODashboard")
 </p>
+
+@try
+{
+    if (TempData["type"] != null)
+    {
+        if (TempData["type"] == "ok")
+        {
+            <script>
+swal("@TempData["info"].ToString()", "@TempData["success"].ToString()", "success");
+
+            </script>
+        }
+        else
+        {
+<script>swal("@TempData["info"].ToString()","@TempData["error"].ToString()", "error");</script>
+        }
+    }
+}
+catch
+{
+
+}
+
 <table class="table">
     <tr>
         <th>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +13,7 @@ namespace Zero_Hunger.Controllers
     {
         private Zero_HungerDbContext _db;
         // GET: NGODashboard
+        [HttpGet]
         public ActionResult Index()
         {
             _db = new Zero_HungerDbContext();
@@ -20,33 +22,96 @@ namespace Zero_Hunger.Controllers
             return View(employees);
         }
 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
         [HttpPost]
-        public ActionResult Create(Employee model) 
-        { 
-            if(ModelState.IsValid)
+        public ActionResult Create(Employee model)
+        {
+            if (ModelState.IsValid)
             {
-                try
+                using (var _db = new Zero_HungerDbContext())
                 {
-                    _db = new Zero_HungerDbContext();
+                    model.NGOUsername = Session["username"].ToString();
                     _db.Employees.Add(model);
-                    _db.SaveChanges();
+                    int chk = _db.SaveChanges();
+                    if(chk > 0)
+                    {
+                        TempData["type"] = "ok";
+                        TempData["success"] = "Employee Added";
+                        TempData["info"] = "Added!";
+                        ModelState.Clear();
+                    }
+                    else
+                    {
+                        TempData["type"] = "error";
+                        TempData["error"] = "Something went wrong";
+                        TempData["info"] = "ERROR";
+                        ModelState.Clear();
+                    }
                 }
-                catch (Exception ex)
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult EditEmp(int Id)
+        {
+            _db=new Zero_HungerDbContext();
+            var emp = _db.Employees.FirstOrDefault(x=>x.EmployeeId.Equals(Id));
+            return View(emp); 
+        }
+        [HttpPost]
+        public ActionResult EditEmp(Employee model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db = new Zero_HungerDbContext();
+                _db.Entry(model).State= EntityState.Modified;
+                int chk = _db.SaveChanges();
+                if(chk > 0)
                 {
-                    ModelState.AddModelError("", ex.Message.ToString());
+                    TempData["type"] = "ok";
+                    TempData["success"]= "Employee information updated!";
+                    ModelState.Clear();
+                }
+                else
+                {
+                    TempData["error"]= "Something went wrong";
+                    TempData["type"] = "error";
+                    ModelState.Clear();
                 }
             }
             return RedirectToAction("Index");
         }
 
-        public ActionResult EditEmp(int Id)
-        {
-            // have to implement the edit login
-            return RedirectToAction("Index");
-        }
+        [HttpGet]
         public ActionResult DeleteEmp(int Id)
         {
-            // have to implement the delete logic
+            _db = new Zero_HungerDbContext();
+            var emp = _db.Employees.FirstOrDefault(x => x.EmployeeId.Equals(Id));
+            return View(emp);
+        }
+        [HttpPost]
+        public ActionResult DeleteEmp(Employee model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db = new Zero_HungerDbContext();
+                _db.Entry(model).State = EntityState.Deleted;
+                int chk = _db.SaveChanges();
+                if(chk > 0)
+                {
+                    TempData["type"] = "ok";
+                    TempData["success"] = "Employee deleted!";
+                }
+                else
+                {
+                    TempData["error"] = "Something went wrong";
+                    TempData["type"] = "error";
+                }
+            }
             return RedirectToAction("Index");
         }
     }

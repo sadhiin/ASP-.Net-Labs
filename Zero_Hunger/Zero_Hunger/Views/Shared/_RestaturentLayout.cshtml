@@ -1,10 +1,10 @@
-﻿
-@{
+﻿@{
     bool isLogedIn = true;
-    if (string.IsNullOrWhiteSpace(User.Identity.Name) || Session["Username"] == null)
+    if (string.IsNullOrWhiteSpace(User.Identity.Name) || Session["username"] == null)
     {
         isLogedIn = false;
     }
+
 }
 
 <!DOCTYPE html>
@@ -35,9 +35,15 @@
                 <ul class="navbar-nav">
                     @if (isLogedIn)
                     {
-                        <li>Open Request</li>
-                        <li>@Html.ActionLink(User.Identity.Name, "Index", "RestaurentDashboard", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink(User.Identity.Name, "Index", "RestaurentDashboard")</li>
+                        <li>@Html.ActionLink("Open-Request", "Request", "RestaurentDashboard")</li>
                         <li>@Html.ActionLink("Signout", "SignOut", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+                    else
+                    {
+                    <li>@Html.ActionLink("NGO-Login", "NGOLogin", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Restaurant-Login", "RestaurantLogin", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Restaurant-SignUp", "RestaurantSignup", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     }
                 </ul>
             </div>

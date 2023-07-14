@@ -9,7 +9,12 @@ namespace Zero_Hunger.Models
     public class NGO
     {
         [Key]
+        [Required(ErrorMessage ="Username is required")]
+        [Display(Name ="Username")]
         public string UserName { get; set; }
+        [Display(Name ="Password")]
+        [Required(ErrorMessage ="Password is required")]
+        [DataType(DataType.Password)] 
         public string Password { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }

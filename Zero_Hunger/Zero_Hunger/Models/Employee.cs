@@ -20,6 +20,9 @@ namespace Zero_Hunger.Models
         [Required]
         public string Contract { get; set; }
 
+        [ForeignKey("ngo")]
+        public string NGOUsername { get; set; }
+        public NGO ngo { get; set; }
 
         public virtual ICollection<CollectionRequest> CollectionRequests { get; set; }
         public virtual ICollection<Distribution> Distributions { get; set; }
