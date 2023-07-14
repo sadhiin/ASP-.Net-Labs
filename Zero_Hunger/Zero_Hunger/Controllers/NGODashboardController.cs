@@ -35,22 +35,36 @@ namespace Zero_Hunger.Controllers
             {
                 using (var _db = new Zero_HungerDbContext())
                 {
-                    model.NGOUsername = Session["username"].ToString();
-                    _db.Employees.Add(model);
-                    int chk = _db.SaveChanges();
-                    if(chk > 0)
+                    bool empExists = _db.Employees.Any(emp => emp.UserName == model.UserName);
+                    if (empExists)
                     {
-                        TempData["type"] = "ok";
-                        TempData["success"] = "Employee Added";
-                        TempData["info"] = "Added!";
+                        TempData["type"] = "Error";
+                        TempData["msg"] = "Employee username conflict";
+                        TempData["info"] = "Error";
+
                         ModelState.Clear();
+                        return RedirectToAction("Index");
                     }
                     else
                     {
-                        TempData["type"] = "error";
-                        TempData["error"] = "Something went wrong";
-                        TempData["info"] = "ERROR";
-                        ModelState.Clear();
+                        model.NGOUsername = Session["username"].ToString();
+
+                        _db.Employees.Add(model);
+                        int chk = _db.SaveChanges();
+                        if (chk > 0)
+                        {
+                            TempData["type"] = "ok";
+                            TempData["msg"] = "Employee Added";
+                            TempData["info"] = "Added!";
+                            ModelState.Clear();
+                        }
+                        else
+                        {
+                            TempData["type"] = "error";
+                            TempData["error"] = "Something went wrong";
+                            TempData["info"] = "ERROR";
+                            ModelState.Clear();
+                        }
                     }
                 }
             }
@@ -74,13 +88,15 @@ namespace Zero_Hunger.Controllers
                 if(chk > 0)
                 {
                     TempData["type"] = "ok";
-                    TempData["success"]= "Employee information updated!";
+                    TempData["msg"]= "Employee information updated!";
+                    TempData["info"] = "Saved";
                     ModelState.Clear();
                 }
                 else
                 {
-                    TempData["error"]= "Something went wrong";
                     TempData["type"] = "error";
+                    TempData["msg"]= "Something went wrong";
+                    TempData["info"] = "Error";
                     ModelState.Clear();
                 }
             }
@@ -97,21 +113,31 @@ namespace Zero_Hunger.Controllers
         [HttpPost]
         public ActionResult DeleteEmp(Employee model)
         {
-            if (ModelState.IsValid)
+            _db = new Zero_HungerDbContext();
+            Employee employee = _db.Employees.Find(model.EmployeeId);
+
+            if (employee != null)
             {
-                _db = new Zero_HungerDbContext();
-                _db.Entry(model).State = EntityState.Deleted;
+                _db.Employees.Remove(employee);
                 int chk = _db.SaveChanges();
-                if(chk > 0)
+                if (chk > 0)
                 {
                     TempData["type"] = "ok";
-                    TempData["success"] = "Employee deleted!";
+                    TempData["msg"] = "Employee deleted!";
+                    TempData["info"] = "Deleted";
                 }
                 else
                 {
-                    TempData["error"] = "Something went wrong";
+                    TempData["msg"] = "Something went wrong";
                     TempData["type"] = "error";
+                    TempData["info"] = "Error";
                 }
+            }
+            else
+            {
+                TempData["msg"] = "Employee not found";
+                TempData["type"] = "error";
+                TempData["info"] = "Error";
             }
             return RedirectToAction("Index");
         }
@@ -150,12 +176,14 @@ namespace Zero_Hunger.Controllers
                 if (chk > 0)
                 {
                     TempData["type"] = "ok";
-                    TempData["success"] = "Restaurant deleted!";
+                    TempData["msg"] = "Restaurant deleted!";
+                    TempData["info"] = "Deleted";
                 }
                 else
                 {
-                    TempData["error"] = "Something went wrong";
+                    TempData["msg"] = "Something went wrong";
                     TempData["type"] = "error";
+                    TempData["info"] = "Error";
                 }
             }
             return RedirectToAction("Restaurants");
@@ -190,12 +218,14 @@ namespace Zero_Hunger.Controllers
                 if(chk > 0)
                 {
                     TempData["type"] = "ok";
-                    TempData["success"] = "Collection Updated!";
+                    TempData["msg"] = "Collection Updated!";
+                    TempData["info"] = "Updated";
                 }
                 else
                 {
-                    TempData["error"] = "Something went wrong";
+                    TempData["msg"] = "Something went wrong";
                     TempData["type"] = "error";
+                    TempData["info"] = "Error";
                 }
             }
             return RedirectToAction("Requests");
@@ -217,12 +247,14 @@ namespace Zero_Hunger.Controllers
                 if(chk > 0)
                 {
                     TempData["type"] = "ok";
-                    TempData["success"] = "Collection request deleted!";
+                    TempData["msg"] = "Collection request deleted!";
+                    TempData["info"] = "Deleted";
                 }
                 else
                 {
-                    TempData["error"] = "Something went wrong";
                     TempData["type"] = "error";
+                    TempData["msg"] = "Something went wrong";
+                    TempData["info"] = "Error";
                 }
             }
             return RedirectToAction("Requests");

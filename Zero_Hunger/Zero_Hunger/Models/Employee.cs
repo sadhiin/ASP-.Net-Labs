@@ -13,9 +13,13 @@ namespace Zero_Hunger.Models
         public int EmployeeId { get; set; }
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Username is required")]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
         [Required]
         public string Contract { get; set; }

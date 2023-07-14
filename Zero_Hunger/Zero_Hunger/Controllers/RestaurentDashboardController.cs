@@ -15,11 +15,13 @@ namespace Zero_Hunger.Controllers
         public ActionResult Index()
         {
             _db = new Zero_HungerDbContext();
+            var restid = Convert.ToInt32(Session["ID"].ToString());
             var requests = _db.CollectionRequests.Where(
-                x => x.RestaurantId.Equals(
-                    Int32.Parse(Session["id"].ToString()))).ToList();
-
-            return View(requests);
+                x => x.RestaurantId.Equals(restid)).ToList();
+            if (requests.Count > 0)
+                return View(requests);
+            else
+                return View();
         }
 
         [HttpGet]
@@ -31,27 +33,29 @@ namespace Zero_Hunger.Controllers
         [HttpPost]
         public ActionResult Create(CollectionRequest request)
         {
-            //had to add status and restaurent id
-            //handle the employee for this.
             if(ModelState.IsValid)
             {
                 request.Status = 0;
-                request.RestaurantId = Int32.Parse(Session["id"].ToString());
+                request.RestaurantId = Convert.ToInt32(Session["id"].ToString());
                 request.EmpId = 0;
 
                 _db = new Zero_HungerDbContext();
-
+                request.CreationDate = DateTime.Parse(request.CreationDate.ToString("yyyy-MM-dd HH:mm:ss"));
+                request.MaxTimeToPreserve = DateTime.Parse(request.MaxTimeToPreserve.ToString("yyyy-MM-dd HH:mm:ss"));
+                
                 _db.CollectionRequests.Add(request);
                 int chk = _db.SaveChanges();
                 if (chk > 0)
                 {
                     TempData["type"] = "ok";
-                    TempData["success"] = "Request opened!";
+                    TempData["msg"] = "Request opened!";
+                    TempData["info"] = "Added";
                 }
                 else
                 {
-                    TempData["error"] = "Something went wrong";
                     TempData["type"] = "error";
+                    TempData["msg"] = "Something went wrong";
+                    TempData["info"] = "Error";
                 }
             }
             return RedirectToAction("Index");

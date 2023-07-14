@@ -16,16 +16,15 @@
 {
     if (TempData["type"] != null)
     {
-        if (TempData["type"] == "ok")
+        if (TempData["type"].ToString() == "ok")
         {
             <script>
-swal("@TempData["info"].ToString()", "@TempData["success"].ToString()", "success");
-
+                    swal("@TempData["info"].ToString()", "@TempData["msg"].ToString()", "success");
             </script>
         }
         else
         {
-<script>swal("@TempData["info"].ToString()","@TempData["error"].ToString()", "error");</script>
+<script>swal("@TempData["info"].ToString()","@TempData["msg"].ToString()", "error");</script>
         }
     }
 }

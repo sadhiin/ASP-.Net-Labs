@@ -83,7 +83,7 @@ namespace Zero_Hunger.Controllers
         [HttpPost]
         public ActionResult RestaurantLogin(Restaurant model)
         {
-            if (ModelState.IsValid)
+            if (model.UserName.ToString() != null && model.Password.ToString() != null)
             { 
                 _db = new Zero_HungerDbContext();
 
@@ -101,6 +101,7 @@ namespace Zero_Hunger.Controllers
                     Session["username"] = restaurant.UserName.ToString();
                     Session["name"] = restaurant.RestaurantName.ToString();
                     FormsAuthentication.SetAuthCookie(restaurant.UserName, false);
+                    return RedirectToAction("Index", "RestaurentDashboard");
                 }
                 ModelState.AddModelError("", "Username or Password is wrong");
             }
@@ -118,8 +119,7 @@ namespace Zero_Hunger.Controllers
         [HttpPost]
         public ActionResult RestaurantSignup(Restaurant model)
         {
-            if (ModelState.IsValid)
-            {
+            if(ModelState.IsValid) { 
                 _db = new Zero_HungerDbContext();
 
                 bool Exists = _db.Restaurants.Any(
@@ -131,6 +131,8 @@ namespace Zero_Hunger.Controllers
                 }
                 else
                 {
+                    model.NGOUsername = _db.NGOs.First().UserName.ToString();
+
                     _db.Restaurants.Add(model);
                     
                     _db.SaveChanges();
@@ -156,11 +158,11 @@ namespace Zero_Hunger.Controllers
         [HttpPost]
         public ActionResult EmployeeLogin(Employee model)
         {
-            if (ModelState.IsValid)
+            if (model.UserName.ToString() != null && model.Password.ToString() != null)
             {
                 _db = new Zero_HungerDbContext();
                 bool EmployeeExists = _db.Employees.Any(
-                    x=>x.UserName.Equals(model.UserName) && 
+                    x => x.UserName.Equals(model.UserName) &&
                     x.Password.Equals(model.Password));
                 if (EmployeeExists == true)
                 {
@@ -172,9 +174,15 @@ namespace Zero_Hunger.Controllers
                     Session["username"] = emp.UserName.ToString();
                     Session["name"] = emp.Name.ToString();
                     FormsAuthentication.SetAuthCookie(emp.UserName, false);
+                    return RedirectToAction("Index", "EmployeeDashboard");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid Username or Password");
                 }
             }
-            return View(model);
+
+            return View();
         }
 
         public ActionResult SignOut()

@@ -6,7 +6,7 @@
 }
 
 <p>
-    @Html.ActionLink("Open-Request", "Create", new { area = "" }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Open-A-Request", "Create", new { area = "" }, new { @class = "btn btn-primary" })
 </p>
 
 @try
@@ -16,13 +16,13 @@
         if (TempData["type"] == "ok")
         {
             <script>
-swal("@TempData["info"].ToString()", "@TempData["success"].ToString()", "success");
+swal("@TempData["info"].ToString()", "@TempData["msg"].ToString()", "success");
 
             </script>
         }
         else
         {
-            <script>swal("@TempData["info"].ToString()","@TempData["error"].ToString()", "error");</script>
+            <script>swal("@TempData["info"].ToString()","@TempData["msg"].ToString()", "error");</script>
         }
     }
 }
@@ -67,5 +67,3 @@ catch
         }
     }
 </table>
-<br />
-@Html.ActionLink("Dashboard", "Index", new { }, new { @class = "btn btn-primary" })

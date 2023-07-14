@@ -87,3 +87,7 @@ C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.StatusDataTypeChanged.resources
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.NGOpasswordDatatypedeclared.resources
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.NGOEmpMissingRelationAdded.resources
+C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.EmpidChangedtoNull.resources
+C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.RestaurentNGOMissingRelationAdded.resources
+C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.DataTypeAndRequiredAddedEmpRest.resources
+C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.RestaurentPropertyChanged.resources

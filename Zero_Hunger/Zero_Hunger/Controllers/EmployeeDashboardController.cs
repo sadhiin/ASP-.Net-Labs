@@ -14,12 +14,18 @@ namespace Zero_Hunger.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            var employeeId = Convert.ToInt32(Session["id"].ToString());
             _db = new Zero_HungerDbContext();
-            var requests = _db.CollectionRequests.Where(
-                x => x.EmpId.Equals(
-                    Int32.Parse(Session["id"].ToString())) && x.Status==1).ToList();
+            var requests = _db.CollectionRequests
+                .Where(x => x.EmpId == employeeId && x.Status == 1)
+                .ToList();
 
-            return View(requests);
+            if (requests.Count > 0)
+            {
+                return View(requests);
+            }
+            else
+                return View();
         }
     }
 }

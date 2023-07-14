@@ -11,14 +11,12 @@
 <div>
     <hr />
     <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.ngo.Password)
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeId)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.ngo.Password)
-        </dd>*@
-
+            @Html.DisplayFor(model => model.EmployeeId)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -53,12 +51,14 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.EmployeeId)
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> 
-            @Html.ActionLink("Back to Dashboard", "Index",new {area=""}, new { @class = "btn btn-primary" })
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Back to Dashboard", "Index", new { area = "" }, new { @class = "btn btn-primary" })
         </div>
     }
 </div>
