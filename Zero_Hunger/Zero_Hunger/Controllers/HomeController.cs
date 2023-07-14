@@ -97,6 +97,7 @@ namespace Zero_Hunger.Controllers
                         x => x.UserName.Equals(model.UserName) &&
                         x.Password.Equals(model.Password));
 
+                    Session["id"] = restaurant.RestaurantID.ToString();
                     Session["username"] = restaurant.UserName.ToString();
                     Session["name"] = restaurant.RestaurantName.ToString();
                     FormsAuthentication.SetAuthCookie(restaurant.UserName, false);
@@ -131,6 +132,7 @@ namespace Zero_Hunger.Controllers
                 else
                 {
                     _db.Restaurants.Add(model);
+                    
                     _db.SaveChanges();
 
                     return RedirectToAction("RestaurantLogin");
@@ -166,6 +168,7 @@ namespace Zero_Hunger.Controllers
                         x => x.UserName.Equals(model.UserName) &&
                         x.Password.Equals(model.Password));
 
+                    Session["id"] = emp.EmployeeId.ToString();
                     Session["username"] = emp.UserName.ToString();
                     Session["name"] = emp.Name.ToString();
                     FormsAuthentication.SetAuthCookie(emp.UserName, false);
@@ -174,7 +177,6 @@ namespace Zero_Hunger.Controllers
             return View(model);
         }
 
-        //[Authorize]
         public ActionResult SignOut()
         {
             if (Session["username"] != null)

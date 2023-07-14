@@ -232,10 +232,10 @@
     <Content Include="Views\RestaurentDashboard\Create.cshtml" />
     <Content Include="Views\NGODashboard\Requests.cshtml" />
     <Content Include="Views\NGODashboard\RequestDetails.cshtml" />
+    <Content Include="Views\EmployeeDashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\EmployeeDashboard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -2,46 +2,35 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_RestaturentLayout.cshtml";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
 }
 
-<p>
-    @Html.ActionLink("Open-Request", "Create", new { area = "" }, new { @class = "btn btn-primary" })
-</p>
-
-@try
-{
-    if (TempData["type"] != null)
-    {
-        if (TempData["type"] == "ok")
-        {
-            <script>
-swal("@TempData["info"].ToString()", "@TempData["success"].ToString()", "success");
-
-            </script>
-        }
-        else
-        {
-            <script>swal("@TempData["info"].ToString()","@TempData["error"].ToString()", "error");</script>
-        }
-    }
-}
-catch
-{
-
-}
-
-
+<h2>Collection Request</h2>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.CollectionRequestName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Restaurant.RestaurantName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant.Contract)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Restaurant.Location)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CreationDate)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.MaxTimeToPreserve)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distribution.Location)
         </th>
     </tr>
 
@@ -50,15 +39,24 @@ catch
         foreach (var item in Model)
         {
             <tr>
-
                 <td>
                     @Html.DisplayFor(modelItem => item.CollectionRequestName)
                 </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restaurant.RestaurantName)
+                </td>
+
+                <td>@Html.DisplayFor(modelItem => item.Restaurant.Contract)</td>
+                <td>@Html.DisplayFor(modelItem => item.Restaurant.Location)</td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreationDate)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.MaxTimeToPreserve)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distribution.Location)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
@@ -67,5 +65,3 @@ catch
         }
     }
 </table>
-<br />
-@Html.ActionLink("Dashboard", "Index", new { }, new { @class = "btn btn-primary" })
