@@ -1,0 +1,50 @@
+﻿@model Zero_Hunger.Models.Restaurant
+
+@{
+    ViewBag.Title = "RestDetails";
+    Layout = "~/Views/Shared/_NGOLayout.cshtml";
+}
+
+<h2>RestDetails</h2>
+
+<div>
+    <h4>Restaurant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contract)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contract)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Delete", "RestDelete", new { id = Model.RestaurantID }, new { @class = "btn btn-danger" })
+    @Html.ActionLink("Restaurentes", "Restaurants", new { @class = "btn btn-parimary" })
+</p>

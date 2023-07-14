@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Zero_Hunger.Models.Restaurant>
+
+@{
+    ViewBag.Title = "Restaurants";
+    Layout = "~/Views/Shared/_NGOLayout.cshtml";
+}
+
+<h2>Restaurants</h2>
+
+@try
+{
+    if (TempData["type"] != null)
+    {
+        if (TempData["type"] == "ok")
+        {
+            <script>
+swal("@TempData["info"].ToString()", "@TempData["success"].ToString()", "success");
+
+            </script>
+        }
+        else
+        {
+            <script>swal("@TempData["info"].ToString()","@TempData["error"].ToString()", "error");</script>
+        }
+    }
+}
+catch
+{
+
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contract)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RestaurantName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contract)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "RestDetails", new { id = item.RestaurantID }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Delete", "RestDelete", new { id = item.RestaurantID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    }
+</table>

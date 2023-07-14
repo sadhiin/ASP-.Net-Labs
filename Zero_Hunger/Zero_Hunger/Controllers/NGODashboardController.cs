@@ -114,5 +114,50 @@ namespace Zero_Hunger.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Restaurants()
+        {
+            _db = new Zero_HungerDbContext();
+            var restaurants = _db.Restaurants.ToList();
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult RestDetails(int id)
+        {
+            _db = new Zero_HungerDbContext();
+            var restaurant= _db.Restaurants.FirstOrDefault(x => x.RestaurantID.Equals(id));
+            return View(restaurant);
+        }
+
+        [HttpGet]
+        public ActionResult RestDelete(int id)
+        {
+            _db = new Zero_HungerDbContext();
+            var restaurent = _db.Restaurants.FirstOrDefault(x => x.RestaurantID.Equals(id));
+            return View(restaurent);
+        }
+        [HttpPost]
+        public ActionResult RestDelete(Restaurant model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db = new Zero_HungerDbContext();
+                _db.Entry(model).State = EntityState.Deleted;
+                int chk = _db.SaveChanges();
+                if (chk > 0)
+                {
+                    TempData["type"] = "ok";
+                    TempData["success"] = "Restaurant deleted!";
+                }
+                else
+                {
+                    TempData["error"] = "Something went wrong";
+                    TempData["type"] = "error";
+                }
+            }
+            return RedirectToAction("Restaurants");
+        }
     }
 }

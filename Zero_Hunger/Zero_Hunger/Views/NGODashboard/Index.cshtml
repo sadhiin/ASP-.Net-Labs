@@ -9,7 +9,7 @@
 <h2>Current Employees</h2>
 @*<h2>@Session["username"]</h2>*@
 <p>
-    @Html.ActionLink("New Employee", "Create", "NGODashboard")
+    @Html.ActionLink("New Employee", "Create", "NGODashboard", new {@class="btn btn-primary"})
 </p>
 
 @try
@@ -64,9 +64,9 @@ catch
                 @Html.DisplayFor(modelItem => item.Contract)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditEmp", new { id = item.EmployeeId }) |
+                @Html.ActionLink("Edit", "EditEmp", new { id = item.EmployeeId }, new { @class = "btn btn-warning" }) 
                 @*@Html.ActionLink("Details", "Details", new { id=item.EmployeeId }) |*@
-                @Html.ActionLink("Delete", "DeleteEmp", new { id = item.EmployeeId })
+                @Html.ActionLink("Delete", "DeleteEmp", new { id = item.EmployeeId }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
