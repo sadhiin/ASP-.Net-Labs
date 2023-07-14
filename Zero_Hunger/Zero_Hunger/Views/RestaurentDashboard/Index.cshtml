@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Zero_Hunger.Models.CollectionRequest>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_RestaturentLayout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Open-Request", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionRequestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.MaxTimeToPreserve)
+                </th*@>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>*@
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CollectionRequestName)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.CreationDate)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxTimeToPreserve)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>*@
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.CollectionRequestId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.CollectionRequestId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.CollectionRequestId })
+                    </td>*@
+            </tr>
+        }
+    }
+</table>
+<br />
+@Html.ActionLink("Dashboard", "Index", new { }, new { @class = "btn btn-primary" })

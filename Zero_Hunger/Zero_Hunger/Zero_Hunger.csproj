@@ -228,11 +228,14 @@
     <Content Include="Views\NGODashboard\Restaurants.cshtml" />
     <Content Include="Views\NGODashboard\RestDetails.cshtml" />
     <Content Include="Views\NGODashboard\RestDelete.cshtml" />
+    <Content Include="Views\RestaurentDashboard\Index.cshtml" />
+    <Content Include="Views\RestaurentDashboard\Create.cshtml" />
+    <Content Include="Views\NGODashboard\Requests.cshtml" />
+    <Content Include="Views\NGODashboard\RequestDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\EmployeeDashboard\" />
-    <Folder Include="Views\RestaurentDashboard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

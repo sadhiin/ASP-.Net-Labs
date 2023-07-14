@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
 using Zero_Hunger.Models;
@@ -158,6 +159,80 @@ namespace Zero_Hunger.Controllers
                 }
             }
             return RedirectToAction("Restaurants");
+        }
+
+        [HttpGet]
+        public ActionResult Requests() 
+        {
+            _db = new Zero_HungerDbContext();
+            var requests = _db.CollectionRequests.ToList();
+            return View(requests);
+        }
+    
+        public ActionResult EditRequest(int id)
+        {
+            if (id != null)
+            {
+                _db = new Zero_HungerDbContext();
+                var request = _db.CollectionRequests.FirstOrDefault(x=>x.CollectionRequestId.Equals(id));
+                return View(request);
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        public ActionResult EditRequest(CollectionRequest model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db = new Zero_HungerDbContext();
+                _db.Entry(model).State = EntityState.Modified; 
+                int chk = _db.SaveChanges();
+                if(chk > 0)
+                {
+                    TempData["type"] = "ok";
+                    TempData["success"] = "Collection Updated!";
+                }
+                else
+                {
+                    TempData["error"] = "Something went wrong";
+                    TempData["type"] = "error";
+                }
+            }
+            return RedirectToAction("Requests");
+        }
+        [HttpGet]
+        public ActionResult DeleteRequest(int id)
+        {
+            _db = new Zero_HungerDbContext();
+            var request = _db.CollectionRequests.FirstOrDefault(x=>x.CollectionRequestId.Equals(id));
+            return View(request);
+        }
+        [HttpPost]
+        public ActionResult DeleteRequest(CollectionRequest model)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(model).State = EntityState.Deleted;
+                int chk = _db.SaveChanges();
+                if(chk > 0)
+                {
+                    TempData["type"] = "ok";
+                    TempData["success"] = "Collection request deleted!";
+                }
+                else
+                {
+                    TempData["error"] = "Something went wrong";
+                    TempData["type"] = "error";
+                }
+            }
+            return RedirectToAction("Requests");
+        }
+        [HttpGet]
+        public ActionResult RequestDetails(int id)
+        {
+            _db = new Zero_HungerDbContext();
+            var request = _db.CollectionRequests.FirstOrDefault(x=>x.CollectionRequestId.Equals(id));
+            return View(request);
         }
     }
 }
