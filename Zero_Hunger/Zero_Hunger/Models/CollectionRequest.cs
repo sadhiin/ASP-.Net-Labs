@@ -23,14 +23,14 @@ namespace Zero_Hunger.Models
         public int Status { get; set; }
 
         public int RestaurantId { get; set; }
+        public int? EmpId { get; set; }
 
         [ForeignKey("RestaurantId")]
         public virtual Restaurant Restaurant { get; set; }
 
-        public int? EmpId { get; set; }
         [ForeignKey("EmpId")]
         public virtual Employee Employee { get; set; }
 
-        public Distribution Distribution { get; set; }
+        public virtual Distribution Distribution { get; set; }
     }
 }
