@@ -170,6 +170,10 @@
     <Compile Include="Migrations\202307141636062_RestaurentPropertyChanged.designer.cs">
       <DependentUpon>202307141636062_RestaurentPropertyChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202307141800339_CollctionDistribuionRelationUpdated.cs" />
+    <Compile Include="Migrations\202307141800339_CollctionDistribuionRelationUpdated.designer.cs">
+      <DependentUpon>202307141800339_CollctionDistribuionRelationUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CollectionRequest.cs" />
     <Compile Include="Models\Distribution.cs" />
@@ -307,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202307141636062_RestaurentPropertyChanged.resx">
       <DependentUpon>202307141636062_RestaurentPropertyChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307141800339_CollctionDistribuionRelationUpdated.resx">
+      <DependentUpon>202307141800339_CollctionDistribuionRelationUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

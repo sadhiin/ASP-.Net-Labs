@@ -31,6 +31,6 @@ namespace Zero_Hunger.Models
         [ForeignKey("EmpId")]
         public virtual Employee Employee { get; set; }
 
-        public virtual Distribution Distribution { get; set; }
+        public Distribution Distribution { get; set; }
     }
 }

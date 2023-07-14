@@ -13,7 +13,7 @@ namespace Zero_Hunger.Models
         public int DistributionId { get; set; }
 
         public int? EmployeeId { get; set; }
-        public int? CollectionRequestId { get; set; }
+        //public int? CollectionRequestId { get; set; }
 
         public DateTime DistributionTime { get; set; }
         public string Location { get; set; }
@@ -22,7 +22,8 @@ namespace Zero_Hunger.Models
         [ForeignKey("EmployeeId")]
         public virtual Employee Employee { get; set; }
 
-        [ForeignKey("CollectionRequestId")]
-        public virtual CollectionRequest CollectionRequest { get; set; }
+        //[ForeignKey("CollectionRequestId")]
+        //public virtual CollectionRequest CollectionRequest { get; set; }
+        public CollectionRequest CollectionRequest { get; set; }
     }
 }

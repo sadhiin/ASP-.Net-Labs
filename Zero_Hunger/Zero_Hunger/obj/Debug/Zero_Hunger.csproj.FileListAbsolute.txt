@@ -91,3 +91,4 @@ C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.RestaurentNGOMissingRelationAdded.resources
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.DataTypeAndRequiredAddedEmpRest.resources
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.RestaurentPropertyChanged.resources
+C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.CollctionDistribuionRelationUpdated.resources
