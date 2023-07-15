@@ -200,31 +200,56 @@ namespace Zero_Hunger.Controllers
         public ActionResult EditRequest(int id)
         {
             _db = new Zero_HungerDbContext();
-            var request = _db.CollectionRequests.FirstOrDefault(x=>x.CollectionRequestId.Equals(id));
+            var request = _db.CollectionRequests.First();
+            if (id == null)
+            {
+                return View(request);
+            }
+            request = _db.CollectionRequests.FirstOrDefault(x=>x.CollectionRequestId.Equals(id));
             return View(request);
         }
         [HttpPost]
         public ActionResult EditRequest(CollectionRequest model)
         {
+            _db = new Zero_HungerDbContext();
+            //ViewBag.Employees = _db.Employees.Select(
+            //    e => new SelectListItem { Value = e.EmployeeId.ToString(), Text = e.Name }).ToList();
+            var employees = _db.Employees.ToList();
+
+            // Debugging code
+            if (employees == null || !employees.Any())
+            {
+                throw new Exception("No employees found.");
+            }
+
+            ViewBag.EmployeeId = new SelectList(employees, "EmployeeId", "Name");
+
+            // More debugging code
+            if (ViewBag.EmployeeId == null)
+            {
+                throw new Exception("ViewBag.EmployeeId is null.");
+            }
+
             if (ModelState.IsValid)
             {
-                _db = new Zero_HungerDbContext();
-                _db.Entry(model).State = EntityState.Modified; 
+                _db.Entry(model).State = EntityState.Modified;
                 int chk = _db.SaveChanges();
-                if(chk > 0)
+                if (chk > 0)
                 {
                     TempData["type"] = "ok";
                     TempData["msg"] = "Collection Updated!";
                     TempData["info"] = "Updated";
+                    return RedirectToAction("Requests");
                 }
                 else
                 {
                     TempData["msg"] = "Something went wrong";
                     TempData["type"] = "error";
                     TempData["info"] = "Error";
+                    return View();
                 }
             }
-            return RedirectToAction("Requests");
+            return View(model);
         }
         [HttpGet]
         public ActionResult DeleteRequest(int id)
