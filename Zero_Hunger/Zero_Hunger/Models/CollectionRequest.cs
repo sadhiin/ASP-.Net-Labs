@@ -16,6 +16,7 @@ namespace Zero_Hunger.Models
         [Required]
         public string CollectionRequestName { get; set; }
 
+        [Required]
         public DateTime CreationDate { get; set; }
 
         [Required]
@@ -24,10 +25,10 @@ namespace Zero_Hunger.Models
         public int Status { get; set; }
 
         public int RestaurantId { get; set; }
-        public int? EmpId { get; set; }
 
         [ForeignKey("RestaurantId")]
         public virtual Restaurant Restaurant { get; set; }
+        public int? EmpId { get; set; }
 
         [ForeignKey("EmpId")]
         public virtual Employee Employee { get; set; }

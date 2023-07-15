@@ -81,14 +81,6 @@ C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.csproj.CopyComplete
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.dll
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.pdb
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.FreshDBInIt.resources
+C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.SolvingDBIssueWithNewMigration.resources
 C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.csproj.GenerateResource.cache
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.EmployeeCollctionDistributionAdd.resources
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.StatusDataTypeChanged.resources
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.NGOpasswordDatatypedeclared.resources
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.NGOEmpMissingRelationAdded.resources
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.EmpidChangedtoNull.resources
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.RestaurentNGOMissingRelationAdded.resources
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.DataTypeAndRequiredAddedEmpRest.resources
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.RestaurentPropertyChanged.resources
-C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.CollctionDistribuionRelationUpdated.resources
+C:\Users\Sadhin\source\repos\Labs\Zero_Hunger\Zero_Hunger\obj\Debug\Zero_Hunger.Migrations.CollectionRequestandEmpIdIssueSolved.resources

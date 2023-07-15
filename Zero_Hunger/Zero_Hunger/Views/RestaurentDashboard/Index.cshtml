@@ -13,7 +13,7 @@
 {
     if (TempData["type"] != null)
     {
-        if (TempData["type"] == "ok")
+        if (TempData["type"].Equals("ok"))
         {
             <script>
 swal("@TempData["info"].ToString()", "@TempData["msg"].ToString()", "success");
@@ -41,6 +41,9 @@ catch
             @Html.DisplayNameFor(model => model.CreationDate)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.MaxTimeToPreserve)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
     </tr>
@@ -61,8 +64,28 @@ catch
                     @Html.DisplayFor(modelItem => item.MaxTimeToPreserve)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                    @{
+                        string statusText = "";
+                        string btnClass = "";
+                        switch (item.Status)
+                        {
+                            case 0:
+                                statusText = "Open";
+                                btnClass = "btn-danger";
+                                break;
+                            case 1:
+                                statusText = "Accepted";
+                                btnClass = "btn-warning";
+                                break;
+                            case 2:
+                                statusText = "Completed";
+                                btnClass = "btn-success";
+                                break;
+                        }
+                    }
+                    <span class="btn @btnClass">@Html.Raw(statusText)</span>
                 </td>
+            
             </tr>
         }
     }

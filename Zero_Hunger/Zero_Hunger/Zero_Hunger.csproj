@@ -134,45 +134,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202307122358516_FreshDBInIt.cs" />
-    <Compile Include="Migrations\202307122358516_FreshDBInIt.designer.cs">
-      <DependentUpon>202307122358516_FreshDBInIt.cs</DependentUpon>
+    <Compile Include="Migrations\202307150655272_SolvingDBIssueWithNewMigration.cs" />
+    <Compile Include="Migrations\202307150655272_SolvingDBIssueWithNewMigration.designer.cs">
+      <DependentUpon>202307150655272_SolvingDBIssueWithNewMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202307130059312_EmployeeCollctionDistributionAdd.cs" />
-    <Compile Include="Migrations\202307130059312_EmployeeCollctionDistributionAdd.designer.cs">
-      <DependentUpon>202307130059312_EmployeeCollctionDistributionAdd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202307130104276_StatusDataTypeChanged.cs" />
-    <Compile Include="Migrations\202307130104276_StatusDataTypeChanged.designer.cs">
-      <DependentUpon>202307130104276_StatusDataTypeChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202307140338520_NGOpasswordDatatypedeclared.cs" />
-    <Compile Include="Migrations\202307140338520_NGOpasswordDatatypedeclared.designer.cs">
-      <DependentUpon>202307140338520_NGOpasswordDatatypedeclared.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202307140443539_NGOEmpMissingRelationAdded.cs" />
-    <Compile Include="Migrations\202307140443539_NGOEmpMissingRelationAdded.designer.cs">
-      <DependentUpon>202307140443539_NGOEmpMissingRelationAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202307141345137_EmpidChangedtoNull.cs" />
-    <Compile Include="Migrations\202307141345137_EmpidChangedtoNull.designer.cs">
-      <DependentUpon>202307141345137_EmpidChangedtoNull.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202307141454191_RestaurentNGOMissingRelationAdded.cs" />
-    <Compile Include="Migrations\202307141454191_RestaurentNGOMissingRelationAdded.designer.cs">
-      <DependentUpon>202307141454191_RestaurentNGOMissingRelationAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202307141621332_DataTypeAndRequiredAddedEmpRest.cs" />
-    <Compile Include="Migrations\202307141621332_DataTypeAndRequiredAddedEmpRest.designer.cs">
-      <DependentUpon>202307141621332_DataTypeAndRequiredAddedEmpRest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202307141636062_RestaurentPropertyChanged.cs" />
-    <Compile Include="Migrations\202307141636062_RestaurentPropertyChanged.designer.cs">
-      <DependentUpon>202307141636062_RestaurentPropertyChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202307141800339_CollctionDistribuionRelationUpdated.cs" />
-    <Compile Include="Migrations\202307141800339_CollctionDistribuionRelationUpdated.designer.cs">
-      <DependentUpon>202307141800339_CollctionDistribuionRelationUpdated.cs</DependentUpon>
+    <Compile Include="Migrations\202307150708174_CollectionRequestandEmpIdIssueSolved.cs" />
+    <Compile Include="Migrations\202307150708174_CollectionRequestandEmpIdIssueSolved.designer.cs">
+      <DependentUpon>202307150708174_CollectionRequestandEmpIdIssueSolved.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CollectionRequest.cs" />
@@ -253,6 +221,7 @@
     <Content Include="Views\NGODashboard\Requests.cshtml" />
     <Content Include="Views\NGODashboard\RequestDetails.cshtml" />
     <Content Include="Views\EmployeeDashboard\Index.cshtml" />
+    <Content Include="Views\NGODashboard\EditRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -285,35 +254,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202307122358516_FreshDBInIt.resx">
-      <DependentUpon>202307122358516_FreshDBInIt.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202307150655272_SolvingDBIssueWithNewMigration.resx">
+      <DependentUpon>202307150655272_SolvingDBIssueWithNewMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307130059312_EmployeeCollctionDistributionAdd.resx">
-      <DependentUpon>202307130059312_EmployeeCollctionDistributionAdd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307130104276_StatusDataTypeChanged.resx">
-      <DependentUpon>202307130104276_StatusDataTypeChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307140338520_NGOpasswordDatatypedeclared.resx">
-      <DependentUpon>202307140338520_NGOpasswordDatatypedeclared.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307140443539_NGOEmpMissingRelationAdded.resx">
-      <DependentUpon>202307140443539_NGOEmpMissingRelationAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307141345137_EmpidChangedtoNull.resx">
-      <DependentUpon>202307141345137_EmpidChangedtoNull.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307141454191_RestaurentNGOMissingRelationAdded.resx">
-      <DependentUpon>202307141454191_RestaurentNGOMissingRelationAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307141621332_DataTypeAndRequiredAddedEmpRest.resx">
-      <DependentUpon>202307141621332_DataTypeAndRequiredAddedEmpRest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307141636062_RestaurentPropertyChanged.resx">
-      <DependentUpon>202307141636062_RestaurentPropertyChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202307141800339_CollctionDistribuionRelationUpdated.resx">
-      <DependentUpon>202307141800339_CollctionDistribuionRelationUpdated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202307150708174_CollectionRequestandEmpIdIssueSolved.resx">
+      <DependentUpon>202307150708174_CollectionRequestandEmpIdIssueSolved.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

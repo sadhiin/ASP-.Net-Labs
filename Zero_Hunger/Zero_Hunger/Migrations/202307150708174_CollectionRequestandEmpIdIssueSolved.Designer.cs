@@ -7,13 +7,13 @@ namespace Zero_Hunger.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class NGOpasswordDatatypedeclared : IMigrationMetadata
+    public sealed partial class CollectionRequestandEmpIdIssueSolved : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NGOpasswordDatatypedeclared));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CollectionRequestandEmpIdIssueSolved));
         
         string IMigrationMetadata.Id
         {
-            get { return "202307140338520_NGOpasswordDatatypedeclared"; }
+            get { return "202307150708174_CollectionRequestandEmpIdIssueSolved"; }
         }
         
         string IMigrationMetadata.Source

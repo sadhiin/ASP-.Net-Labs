@@ -21,8 +21,8 @@ namespace Zero_Hunger.Controllers
             //_db.Database.ExecuteSqlCommand("ALTER TABLE CollectionRequests ADD CollectionRequestId int IDENTITY(1,1) PRIMARY KEY");
 
             var restid = Convert.ToInt32(Session["ID"].ToString());
-                var requests = _db.CollectionRequests.Where(
-                    x => x.RestaurantId.Equals(restid)).ToList();
+            var requests = _db.CollectionRequests.Where(
+                x => x.RestaurantId.Equals(restid)).ToList();
             if (requests.Count > 0)
                 return View(requests);
             
@@ -42,12 +42,10 @@ namespace Zero_Hunger.Controllers
             {
                 request.Status = 0;
                 request.RestaurantId = Convert.ToInt32(Session["id"].ToString());
-                request.EmpId = 0;
+                request.EmpId = 1;
 
                 _db = new Zero_HungerDbContext();
-                //request.CreationDate = DateTime.Parse(request.CreationDate.ToString("yyyy-MM-dd HH:mm:ss"));
-                //request.MaxTimeToPreserve = DateTime.Parse(request.MaxTimeToPreserve.ToString("yyyy-MM-dd HH:mm:ss"));
-                //request.CreationDate = request.CreationDate.Date.ToString("yy-MM-dd HH:mm:ss");
+                
                 request.Distribution = null;
                 _db.CollectionRequests.Add(request);
                 int chk = _db.SaveChanges();

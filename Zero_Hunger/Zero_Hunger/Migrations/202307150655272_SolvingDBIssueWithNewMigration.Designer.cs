@@ -7,13 +7,13 @@ namespace Zero_Hunger.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class DataTypeAndRequiredAddedEmpRest : IMigrationMetadata
+    public sealed partial class SolvingDBIssueWithNewMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DataTypeAndRequiredAddedEmpRest));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SolvingDBIssueWithNewMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202307141621332_DataTypeAndRequiredAddedEmpRest"; }
+            get { return "202307150655272_SolvingDBIssueWithNewMigration"; }
         }
         
         string IMigrationMetadata.Source

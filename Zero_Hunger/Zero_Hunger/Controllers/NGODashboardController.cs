@@ -199,13 +199,9 @@ namespace Zero_Hunger.Controllers
     
         public ActionResult EditRequest(int id)
         {
-            if (id != null)
-            {
-                _db = new Zero_HungerDbContext();
-                var request = _db.CollectionRequests.FirstOrDefault(x=>x.CollectionRequestId.Equals(id));
-                return View(request);
-            }
-            return HttpNotFound();
+            _db = new Zero_HungerDbContext();
+            var request = _db.CollectionRequests.FirstOrDefault(x=>x.CollectionRequestId.Equals(id));
+            return View(request);
         }
         [HttpPost]
         public ActionResult EditRequest(CollectionRequest model)

@@ -24,7 +24,7 @@ namespace Zero_Hunger.Models
                 .HasForeignKey(c => c.RestaurantId);
 
             modelBuilder.Entity<CollectionRequest>()
-                .HasRequired(c => c.Employee)
+                .HasOptional(c => c.Employee)
                 .WithMany(e => e.CollectionRequests)
                 .HasForeignKey(c => c.EmpId);
 
