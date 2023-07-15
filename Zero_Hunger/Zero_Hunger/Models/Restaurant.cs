@@ -26,16 +26,16 @@ namespace Zero_Hunger.Models
         [Display(Name = "Password")]
         public string Password { get; set;}
 
-        [Required]
+        [Required(ErrorMessage ="Location can't be blank")]
         public string Location { get; set;}
 
-        [Required]
+        [Required(ErrorMessage ="Contract number is required")]
         public string Contract { get; set;}
 
         [ForeignKey("ngo")]
         public string NGOUsername { get; set;}
         public NGO ngo { get; set;}
-        public virtual ICollection<CollectionRequest> CollectionRequests { get; set;}   
+        public virtual ICollection<CollectionRequest> CollectionRequests { get; set; }
 
         public Restaurant()
         {

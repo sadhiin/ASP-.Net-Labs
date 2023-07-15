@@ -21,7 +21,8 @@ namespace Zero_Hunger.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
-        [Required]
+
+        [Required(ErrorMessage ="Employees contract number is needed")]
         public string Contract { get; set; }
 
         [ForeignKey("ngo")]
@@ -31,8 +32,8 @@ namespace Zero_Hunger.Models
         public virtual ICollection<CollectionRequest> CollectionRequests { get; set; }
         public virtual ICollection<Distribution> Distributions { get; set; }
 
-        public Employee() 
-        { 
+        public Employee()
+        {
             CollectionRequests = new List<CollectionRequest>();
             Distributions = new List<Distribution>();
         }

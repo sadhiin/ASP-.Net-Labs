@@ -8,20 +8,25 @@ using Zero_Hunger.Models;
 
 namespace Zero_Hunger.Controllers
 {
+    [Authorize]
     public class RestaurentDashboardController : Controller
     {
         private Zero_HungerDbContext _db;
         // GET: RestaurentDashboard
         public ActionResult Index()
         {
-            _db = new Zero_HungerDbContext();
+                _db = new Zero_HungerDbContext();
+            ////_db.Database.ExecuteSqlCommand("ALTER TABLE CollectionRequests ADD CollectionRequestId int IDENTITY(1,1) PRIMARY KEY");
+            //_db.Database.ExecuteSqlCommand("ALTER TABLE CollectionRequests DROP COLUMN CollectionRequestId");
+            //_db.Database.ExecuteSqlCommand("ALTER TABLE CollectionRequests ADD CollectionRequestId int IDENTITY(1,1) PRIMARY KEY");
+
             var restid = Convert.ToInt32(Session["ID"].ToString());
-            var requests = _db.CollectionRequests.Where(
-                x => x.RestaurantId.Equals(restid)).ToList();
+                var requests = _db.CollectionRequests.Where(
+                    x => x.RestaurantId.Equals(restid)).ToList();
             if (requests.Count > 0)
                 return View(requests);
-            else
-                return View();
+            
+            return View();
         }
 
         [HttpGet]
@@ -40,9 +45,10 @@ namespace Zero_Hunger.Controllers
                 request.EmpId = 0;
 
                 _db = new Zero_HungerDbContext();
-                request.CreationDate = DateTime.Parse(request.CreationDate.ToString("yyyy-MM-dd HH:mm:ss"));
-                request.MaxTimeToPreserve = DateTime.Parse(request.MaxTimeToPreserve.ToString("yyyy-MM-dd HH:mm:ss"));
-                
+                //request.CreationDate = DateTime.Parse(request.CreationDate.ToString("yyyy-MM-dd HH:mm:ss"));
+                //request.MaxTimeToPreserve = DateTime.Parse(request.MaxTimeToPreserve.ToString("yyyy-MM-dd HH:mm:ss"));
+                //request.CreationDate = request.CreationDate.Date.ToString("yy-MM-dd HH:mm:ss");
+                request.Distribution = null;
                 _db.CollectionRequests.Add(request);
                 int chk = _db.SaveChanges();
                 if (chk > 0)

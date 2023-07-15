@@ -10,6 +10,7 @@ namespace Zero_Hunger.Models
     public class CollectionRequest
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CollectionRequestId { get; set; }
 
         [Required]

@@ -7,6 +7,7 @@ using Zero_Hunger.Models;
 
 namespace Zero_Hunger.Controllers
 {
+    [Authorize]
     public class EmployeeDashboardController : Controller
     {
         private Zero_HungerDbContext _db;
