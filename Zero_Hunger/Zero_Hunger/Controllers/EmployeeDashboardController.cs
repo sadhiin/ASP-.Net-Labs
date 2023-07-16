@@ -18,7 +18,7 @@ namespace Zero_Hunger.Controllers
             var employeeId = Convert.ToInt32(Session["id"].ToString());
             _db = new Zero_HungerDbContext();
             var requests = _db.CollectionRequests
-                .Where(x => x.EmpId == employeeId && x.Status == 1)
+                .Where(x => x.EmpId == employeeId)
                 .ToList();
 
             if (requests.Count > 0)

@@ -64,7 +64,27 @@
                     @Html.DisplayFor(modelItem => item.Employee.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                    @*@Html.DisplayFor(modelItem => item.Status)*@
+                    @{
+                        string statusText = "";
+                        string btnClass = "";
+                        switch (item.Status)
+                        {
+                            case 0:
+                                statusText = "Open";
+                                btnClass = "btn-danger";
+                                break;
+                            case 1:
+                                statusText = "Accepted";
+                                btnClass = "btn-warning";
+                                break;
+                            case 2:
+                                statusText = "Completed";
+                                btnClass = "btn-success";
+                                break;
+                        }
+                    }
+                    <span class="btn @btnClass">@Html.Raw(statusText)</span>
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "EditRequest", new { id = item.CollectionRequestId }, new { @class = "btn btn-primary" })

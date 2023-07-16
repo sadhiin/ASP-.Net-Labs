@@ -147,7 +147,7 @@ namespace Zero_Hunger.Controllers
         {
             _db = new Zero_HungerDbContext();
             var restaurants = _db.Restaurants.ToList();
-            return View();
+            return View(restaurants);
         }
 
         [HttpGet]
@@ -200,12 +200,8 @@ namespace Zero_Hunger.Controllers
         public ActionResult EditRequest(int id)
         {
             _db = new Zero_HungerDbContext();
-            var request = _db.CollectionRequests.First();
-            if (id == null)
-            {
-                return View(request);
-            }
-            request = _db.CollectionRequests.FirstOrDefault(x=>x.CollectionRequestId.Equals(id));
+
+            var request = _db.CollectionRequests.FirstOrDefault(x=>x.CollectionRequestId.Equals(id));
             return View(request);
         }
         [HttpPost]
@@ -214,21 +210,21 @@ namespace Zero_Hunger.Controllers
             _db = new Zero_HungerDbContext();
             //ViewBag.Employees = _db.Employees.Select(
             //    e => new SelectListItem { Value = e.EmployeeId.ToString(), Text = e.Name }).ToList();
-            var employees = _db.Employees.ToList();
+            //var employees = _db.Employees.ToList();
 
             // Debugging code
-            if (employees == null || !employees.Any())
-            {
-                throw new Exception("No employees found.");
-            }
+            //if (employees == null || !employees.Any())
+            //{
+            //    throw new Exception("No employees found.");
+            //}
 
-            ViewBag.EmployeeId = new SelectList(employees, "EmployeeId", "Name");
+            //ViewBag.EmployeeId = new SelectList(employees, "EmployeeId", "Name");
 
             // More debugging code
-            if (ViewBag.EmployeeId == null)
-            {
-                throw new Exception("ViewBag.EmployeeId is null.");
-            }
+            //if (ViewBag.EmployeeId == null)
+            //{
+            //    throw new Exception("ViewBag.EmployeeId is null.");
+            //}
 
             if (ModelState.IsValid)
             {

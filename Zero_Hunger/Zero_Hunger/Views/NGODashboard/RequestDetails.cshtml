@@ -20,54 +20,41 @@
         <dt>
             @Html.DisplayNameFor(model => model.Distribution.Location)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Distribution.Location)
         </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Restaurant.RestaurantName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Restaurant.RestaurantName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreationDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaxTimeToPreserve)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaxTimeToPreserve)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Employee.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Employee.Name)
-        </dd>
-
+        <!-- Rest of the code... -->
 
         <dt>
             @Html.DisplayNameFor(model => model.Status)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Status)
+            @{
+                string statusText = "";
+                string btnClass = "";
+                switch (Model.Status)
+                {
+                    case 0:
+                        statusText = "Open";
+                        btnClass = "btn-danger";
+                        break;
+                    case 1:
+                        statusText = "Accepted";
+                        btnClass = "btn-warning";
+                        break;
+                    case 2:
+                        statusText = "Completed";
+                        btnClass = "btn-success";
+                        break;
+                }
+            }
+            <span class="btn @btnClass">@Html.Raw(statusText)</span>
         </dd>
     </dl>
 </div>
 
 <p>
-    @Html.ActionLink("Edit", "EditRequest", new { id = Model.CollectionRequestId }, new {@class="btn btn-primary"}) |
-    @Html.ActionLink("Back to List", "Requests", new { area =""}, new {@class="btn btn-primary"})
+    @Html.ActionLink("Edit", "EditRequest", new { id = Model.CollectionRequestId }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Back to List", "Requests", new { area = "" }, new { @class = "btn btn-primary" })
 </p>

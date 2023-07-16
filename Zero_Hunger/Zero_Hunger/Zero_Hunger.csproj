@@ -222,6 +222,7 @@
     <Content Include="Views\NGODashboard\RequestDetails.cshtml" />
     <Content Include="Views\EmployeeDashboard\Index.cshtml" />
     <Content Include="Views\NGODashboard\EditRequest.cshtml" />
+    <Content Include="Views\NGODashboard\DeleteRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
