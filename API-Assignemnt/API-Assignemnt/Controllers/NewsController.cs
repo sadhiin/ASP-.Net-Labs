@@ -24,14 +24,15 @@ namespace API_Assignemnt.Controllers
 
         // Create a news
         [HttpPost]
-        [Route("api/new/create")]
+        [Route("api/news/create")]
         public HttpResponseMessage Create(News news)
         {
-            if (ModelState.IsValid)
+            if (news.Title != null && news.Content != null && news.CategoryId != 0)
             {
                 String Msg = "";
                 try
                 {
+                    news.Date = DateTime.Today;
                     _context.Newses.Add(news);
                     int check = _context.SaveChanges();
                     if (check == 0)
@@ -58,7 +59,7 @@ namespace API_Assignemnt.Controllers
         [Route("api/news/all")]
         public HttpResponseMessage GetAllNews()
         {
-            var newses = _context.Newses.Select(n => new { n.Id, n.Title, n.Content }).ToList();
+            var newses = _context.Newses.Select(n => new { n.Id, n.Title, n.Content, n.Date, n.Category.Name }).ToList();
             //var newses = _context.Newses.Select(n => new { n.Id, n.Title, n.Content, Category = n.Category.Name })
             //.ToList();
 
@@ -79,7 +80,7 @@ namespace API_Assignemnt.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadGateway, new { Msg = "Null id value not acceptable" });
             }
 
-            var news = _context.Newses.Select(n => new { n.Id, n.Title, n.Content }).SingleOrDefault(n => n.Id == id);
+            var news = _context.Newses.Select(n => new { n.Id, n.Title, n.Content, n.Date, n.Category.Name }).SingleOrDefault(n => n.Id == id);
             if (news == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Invalid id" });
@@ -92,7 +93,7 @@ namespace API_Assignemnt.Controllers
         [Route("api/news/edit")]
         public HttpResponseMessage Edit(News news)
         {
-            if (ModelState.IsValid)
+            if (news.Id > 0 && news.Title != null && news.Content != null)
             {
                 var newsInDb = _context.Newses.Find(news.Id);
                 if (newsInDb == null)
@@ -101,7 +102,7 @@ namespace API_Assignemnt.Controllers
                 }
                 newsInDb.Title = news.Title;
                 newsInDb.Content = news.Content;
-                newsInDb.Date = news.Date;
+                //newsInDb.Date = news.Date;
                 newsInDb.CategoryId = news.CategoryId;
                 int check = _context.SaveChanges();
                 if (check == 0)
@@ -159,21 +160,28 @@ namespace API_Assignemnt.Controllers
 
         // Get news by date
         [HttpGet]
-        [Route("api/news/{date}")]
+        [Route("api/news/by/date/{date}")]
         public HttpResponseMessage GetNewsByDate(DateTime date)
         {
-            var newsByDate = _context.Newses.Where(n => n.Date.Date == date.Date).ToList();
+            var newsByDate = _context.Newses.Select(n => new { n.Id, n.Title, n.Content, n.Date, n.Category.Name })
+                                .Where(n => n.Date.Year == date.Year && 
+                                n.Date.Month == date.Month && n.Date.Day == date.Day)
+                                .ToList();
             if (newsByDate.Count == 0 || newsByDate == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "Now news found with this date!" });
             }
             return Request.CreateResponse(HttpStatusCode.OK, newsByDate);
         }
+
+
         [HttpGet]
-        [Route("api/news/{categoryName}")]
+        [Route("api/news/by/category/{categoryName}")]
         public HttpResponseMessage GetNesByCategory(string categoryName)
         {
-            var news = _context.Newses.Where(n => n.Category.Name == categoryName).ToList();
+            var news = _context.Newses
+                .Where(n => n.Category.Name.Contains(categoryName))
+                .Select(n => new { n.Id, n.Title, n.Content, n.Date, n.Category.Name }).ToList();
             if (news.Count == 0 || news == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "No news present with this category!" });
@@ -182,13 +190,15 @@ namespace API_Assignemnt.Controllers
         }
 
         [HttpGet]
-        [Route("api/news/{date}/{categoryName}")]
+        [Route("api/news/by/{date}/{categoryName}")]
         public HttpResponseMessage GetNewsByDateAndCategory(DateTime date, string categoryName)
         {
             var news = _context.Newses
-                .Where(n=>n.Date == date.Date && n.Category.Name == categoryName).ToList();
+                            .Where(n => n.Date.Year == date.Year && n.Date.Month == date.Month && n.Date.Day == date.Day && n.Category.Name.Contains(categoryName))
+                            .Select(n => new { n.Id, n.Title, n.Content, n.Date, CategoryName = n.Category.Name })
+                            .ToList();
 
-            if(news.Count==0 || news == null)
+            if (news.Count == 0 || news == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound, new { Msg = "No news present with this date or category!" });
             }

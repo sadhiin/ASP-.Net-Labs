@@ -43,7 +43,7 @@ namespace API_Assignemnt.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.BadGateway, new { Msg = "Null id value not acceptable!" });
             }
-            var category = _context.Categories.Find(id);
+            var category = _context.Categories.Select(c => new { c.Id, c.Name }).FirstOrDefault(c=>c.Id==id);
             if (category == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
