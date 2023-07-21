@@ -11,7 +11,6 @@ namespace API_Assignemnt.Controllers
     public class CategoriesController : ApiController
     {
         private AssignmentContext _context;
-        // GET: Categories
 
         public CategoriesController()
         {
@@ -40,6 +39,10 @@ namespace API_Assignemnt.Controllers
         [Route("api/category/{id}")]
         public HttpResponseMessage GetCategoryById(int id)
         {
+            if (id == 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadGateway, new { Msg = "Null id value not acceptable!" });
+            }
             var category = _context.Categories.Find(id);
             if (category == null)
             {
@@ -73,10 +76,10 @@ namespace API_Assignemnt.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message.ToString());
                 }
             }
-            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState.ToString());
         }
 
         // Edit a category
@@ -110,7 +113,7 @@ namespace API_Assignemnt.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message);
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex.Message.ToString());
                 }
             }
             return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
@@ -122,34 +125,39 @@ namespace API_Assignemnt.Controllers
         [Route("api/category/delete/{id}")]
         public HttpResponseMessage Delete(int id)
         {
-            string Msg = "";
-            try
-            {
-                var categoryInDb = _context.Categories.Find(id);
-                if (categoryInDb == null) {
-                    Msg = "Category not found. Invalid category Id.";
-                    return Request.CreateResponse(HttpStatusCode.NotFound, Msg);
-                }
-                else
+            if (id != 0)
+            { 
+                string Msg = "";
+                try
                 {
-                    _context.Categories.Remove(categoryInDb);
-                    int check = _context.SaveChanges();
-                    if(check== 0)
+                    var categoryInDb = _context.Categories.Find(id);
+                    if (categoryInDb == null)
                     {
-                        Msg = "Something went wrong";
-                        return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, Msg);
+                        Msg = "Category not found. Invalid category Id.";
+                        return Request.CreateResponse(HttpStatusCode.NotFound, Msg);
                     }
                     else
                     {
-                        Msg = "Category Deleted";
-                        return Request.CreateResponse(HttpStatusCode.OK, Msg);
+                        _context.Categories.Remove(categoryInDb);
+                        int check = _context.SaveChanges();
+                        if (check == 0)
+                        {
+                            Msg = "Something went wrong";
+                            return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, Msg);
+                        }
+                        else
+                        {
+                            Msg = "Category Deleted";
+                            return Request.CreateResponse(HttpStatusCode.OK, Msg);
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-            }
+            return Request.CreateResponse(HttpStatusCode.BadGateway, new {Msg="Null id value not acceptable"});
         }
     }
 }

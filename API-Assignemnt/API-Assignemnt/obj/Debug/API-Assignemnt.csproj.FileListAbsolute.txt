@@ -71,3 +71,4 @@ C:\Users\Sadhin\source\repos\Labs\API-Assignemnt\API-Assignemnt\obj\Debug\API-As
 C:\Users\Sadhin\source\repos\Labs\API-Assignemnt\API-Assignemnt\obj\Debug\API-Assignemnt.pdb
 C:\Users\Sadhin\source\repos\Labs\API-Assignemnt\API-Assignemnt\obj\Debug\API_Assignemnt.Migrations.apiDBInit.resources
 C:\Users\Sadhin\source\repos\Labs\API-Assignemnt\API-Assignemnt\obj\Debug\API-Assignemnt.csproj.GenerateResource.cache
+C:\Users\Sadhin\source\repos\Labs\API-Assignemnt\API-Assignemnt\obj\Debug\API_Assignemnt.Migrations.SomeModificationDone.resources

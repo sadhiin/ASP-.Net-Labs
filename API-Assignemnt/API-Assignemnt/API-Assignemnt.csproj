@@ -94,12 +94,17 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202307210630284_apiDBInit.cs" />
     <Compile Include="Migrations\202307210630284_apiDBInit.designer.cs">
       <DependentUpon>202307210630284_apiDBInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202307211229534_SomeModificationDone.cs" />
+    <Compile Include="Migrations\202307211229534_SomeModificationDone.designer.cs">
+      <DependentUpon>202307211229534_SomeModificationDone.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AssignmentContext.cs" />
@@ -123,6 +128,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202307210630284_apiDBInit.resx">
       <DependentUpon>202307210630284_apiDBInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202307211229534_SomeModificationDone.resx">
+      <DependentUpon>202307211229534_SomeModificationDone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
