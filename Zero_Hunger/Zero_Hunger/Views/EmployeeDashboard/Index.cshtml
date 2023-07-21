@@ -27,10 +27,10 @@
             @Html.DisplayNameFor(model => model.MaxTimeToPreserve)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            @Html.DisplayNameFor(model => model.Distribution.Location)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Distribution.Location)
+            @Html.DisplayNameFor(model => model.Status)
         </th>
     </tr>
 
@@ -59,7 +59,27 @@
                     @Html.DisplayFor(modelItem => item.Distribution.Location)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                    @*@Html.DisplayFor(modelItem => item.Status)*@
+                    @{
+                        string statusText = "";
+                        string btnClass = "";
+                        switch (item.Status)
+                        {
+                            case 0:
+                                statusText = "Open";
+                                btnClass = "btn-danger";
+                                break;
+                            case 1:
+                                statusText = "Accepted";
+                                btnClass = "btn-warning";
+                                break;
+                            case 2:
+                                statusText = "Completed";
+                                btnClass = "btn-success";
+                                break;
+                        }
+                    }
+                    <span class="btn @btnClass">@Html.Raw(statusText)</span>
                 </td>
             </tr>
         }
