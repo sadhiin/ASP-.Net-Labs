@@ -8,11 +8,11 @@ namespace DAL.Interfaces
 {
     internal interface IRepoStudent<MODELCLASS, NUMBER, LOGIC, RETURNCLASS, OTHERS>
     {
-        List<MODELCLASS> InCompleteCourses();
+        List<MODELCLASS> InCompleteCourses(NUMBER sid);
+        
+        LOGIC AddCouse(NUMBER sid, MODELCLASS obj);
 
-        LOGIC AddCouse(MODELCLASS obj);
-
-        LOGIC UpdateRegistrationStatus(NUMBER sid, OTHERS regobj);
-        LOGIC ConfirmRegistation(NUMBER sid);
+        LOGIC UpdateRegistrationStatus(NUMBER sid, NUMBER sem);
+        LOGIC ConfirmRegistration(NUMBER sid);
     }
 }

@@ -10,5 +10,6 @@ C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.csproj.Cor
 C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.dll
 C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.pdb
-C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.Migrations.DbInIt.resources
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.Migrations.RevisedDB.resources
 C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.Migrations.UserTokenTable.resources

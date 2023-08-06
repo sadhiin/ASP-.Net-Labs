@@ -69,3 +69,10 @@ C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\obj\Debug\
 C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\obj\Debug\PortalRegistation.csproj.CopyComplete
 C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\obj\Debug\PortalRegistation.dll
 C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\obj\Debug\PortalRegistation.pdb
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\bin\BLL.dll
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\bin\DAL.dll
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\bin\AutoMapper.dll
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\bin\BLL.pdb
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\bin\DAL.pdb
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\bin\DAL.dll.config
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\PortalRegistation\bin\AutoMapper.xml

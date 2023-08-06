@@ -52,22 +52,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccessFactory.cs" />
+    <Compile Include="EF\Models\AcademicYear.cs" />
     <Compile Include="EF\Models\Course.cs" />
-    <Compile Include="EF\Models\CourseStudent.cs" />
+    <Compile Include="EF\Models\Enrollment.cs" />
     <Compile Include="EF\Models\Registration.cs" />
+    <Compile Include="EF\Models\Semester.cs" />
     <Compile Include="EF\Models\Student.cs" />
+    <Compile Include="EF\Models\Token.cs" />
     <Compile Include="EF\Models\User.cs" />
     <Compile Include="EF\PortalContext.cs" />
     <Compile Include="Interfaces\IAuth.cs" />
+    <Compile Include="Interfaces\IRepo.cs" />
     <Compile Include="Interfaces\IRepoAdmin.cs" />
     <Compile Include="Interfaces\IRepoStudent.cs" />
-    <Compile Include="Migrations\202308060737554_DbInIt.cs" />
-    <Compile Include="Migrations\202308060737554_DbInIt.designer.cs">
-      <DependentUpon>202308060737554_DbInIt.cs</DependentUpon>
+    <Compile Include="Migrations\202308061300089_RevisedDB.cs" />
+    <Compile Include="Migrations\202308061300089_RevisedDB.designer.cs">
+      <DependentUpon>202308061300089_RevisedDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202308061327057_UserTokenTable.cs" />
+    <Compile Include="Migrations\202308061327057_UserTokenTable.designer.cs">
+      <DependentUpon>202308061327057_UserTokenTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\Repo.cs" />
+    <Compile Include="Repos\StudentRepo.cs" />
+    <Compile Include="Repos\TokenRepo.cs" />
     <Compile Include="Repos\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,8 +85,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202308060737554_DbInIt.resx">
-      <DependentUpon>202308060737554_DbInIt.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202308061300089_RevisedDB.resx">
+      <DependentUpon>202308061300089_RevisedDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202308061327057_UserTokenTable.resx">
+      <DependentUpon>202308061327057_UserTokenTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

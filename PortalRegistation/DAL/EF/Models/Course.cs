@@ -11,7 +11,8 @@ namespace DAL.EF.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public ICollection<Student> Students { get; set; }
+        public int StudentCount { get; set; }
+        public ICollection<Enrollment> Enrollments{ get; set; }
 
     }
 }

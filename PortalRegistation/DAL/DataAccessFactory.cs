@@ -1,4 +1,5 @@
-﻿using DAL.Interfaces;
+﻿using DAL.EF.Models;
+using DAL.Interfaces;
 using DAL.Repos;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ namespace DAL
         public static IAuth AuthDataAccess()
         {
             return new UserRepo();
+        }
+        public static IRepo<Token, int, Token, string> TokenDataAccess()
+        {
+            return new TokenRepo();
         }
     }
 }
