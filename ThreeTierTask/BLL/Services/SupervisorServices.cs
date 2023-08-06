@@ -1,4 +1,5 @@
-﻿using BLL.DTOs;
+﻿using AutoMapper;
+using BLL.DTOs;
 using DLL;
 using DLL.EF.Model;
 using System;
@@ -37,5 +38,56 @@ namespace BLL.Services
             return rtn;
         }
 
+        public static List<ProjectDTO> GetAllProject()
+        {
+            var data = DataAccessFactory.SupervisorDataAccess().Projects();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Project, ProjectDTO>();
+            });
+            var mapper = new Mapper(config);
+
+            var rtn = mapper.Map<List<ProjectDTO>>(data);
+            return rtn;
+        }
+
+        public static List<ProjectDTO> AllOnGoingProjects()
+        {
+            var data = DataAccessFactory.SupervisorDataAccess().OnGoingProjects();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Project, ProjectDTO>();
+            });
+            var mapper = new Mapper(config);
+
+            var rtn = mapper.Map<List<ProjectDTO>>(data);
+            return rtn;
+        }
+
+        public static List<ProjectDTO> AllTheCompletedProjects()
+        {
+            var data = DataAccessFactory.SupervisorDataAccess().AllCompletedProjects();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Project, ProjectDTO>();
+            });
+            var mapper = new Mapper(config);
+
+            var rtn = mapper.Map<List<ProjectDTO>>(data);
+            return rtn;
+        }
+
+        public static ProjectDTO ProjectById(int id)
+        {
+            var data = DataAccessFactory.SupervisorDataAccess().ProjectById(id);
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Project, ProjectDTO>();
+            });
+            var mapper = new Mapper(config);
+
+            var rtn = mapper.Map<ProjectDTO>(data);
+            return rtn;
+        }
     }
 }

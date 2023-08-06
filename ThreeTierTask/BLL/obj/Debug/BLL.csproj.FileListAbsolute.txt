@@ -4,3 +4,11 @@ C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\obj\Debug\BLL.csproj.Assembl
 C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\obj\Debug\BLL.dll
 C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\obj\Debug\BLL.pdb
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\bin\Debug\AutoMapper.dll
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\bin\Debug\DLL.dll
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\bin\Debug\DLL.pdb
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\bin\Debug\DLL.dll.config
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\bin\Debug\AutoMapper.xml
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\BLL\obj\Debug\BLL.csproj.CopyComplete

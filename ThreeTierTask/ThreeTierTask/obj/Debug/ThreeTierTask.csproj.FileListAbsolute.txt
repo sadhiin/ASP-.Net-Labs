@@ -69,3 +69,10 @@ C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\obj\Debug\ThreeTie
 C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\obj\Debug\ThreeTierTask.csproj.CopyComplete
 C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\obj\Debug\ThreeTierTask.dll
 C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\obj\Debug\ThreeTierTask.pdb
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\bin\BLL.dll
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\bin\DLL.dll
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\bin\AutoMapper.dll
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\bin\BLL.pdb
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\bin\DLL.pdb
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\bin\DLL.dll.config
+C:\Users\Sadhin\source\repos\Labs\ThreeTierTask\ThreeTierTask\bin\AutoMapper.xml
