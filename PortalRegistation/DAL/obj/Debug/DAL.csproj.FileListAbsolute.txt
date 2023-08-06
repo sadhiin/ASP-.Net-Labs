@@ -1,0 +1,14 @@
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\bin\Debug\DAL.dll.config
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\bin\Debug\DAL.dll
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\bin\Debug\DAL.pdb
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.dll
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.pdb
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.Migrations.DbInIt.resources
+C:\Users\Sadhin\source\repos\Labs\PortalRegistation\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
