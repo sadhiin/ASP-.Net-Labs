@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,9 @@ namespace DLL.EF.Model
         // 0 -> Open
         // 1 -> In progress
         // 2 -> complete
+
         // Foreign key for supervisor
+        [ForeignKey("Supervisor")]
         public int Supervisor_ID { get; set; }
         public Supervisor Supervisor { get; set; }
 

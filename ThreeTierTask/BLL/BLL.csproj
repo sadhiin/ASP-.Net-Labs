@@ -41,11 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOs\CategoryDTO.cs" />
+    <Compile Include="DTOs\EnrollmentDTO.cs" />
+    <Compile Include="DTOs\MemberDTO.cs" />
+    <Compile Include="DTOs\ProjectDTO.cs" />
+    <Compile Include="DTOs\RoleDTO.cs" />
+    <Compile Include="DTOs\SupervisorDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\SupervisorService.cs" />
+    <Compile Include="Services\MemberServices.cs" />
+    <Compile Include="Services\SupervisorServices.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTOs\" />
+    <ProjectReference Include="..\DLL\DAL.csproj">
+      <Project>{3A5D05FA-2756-44A0-86CA-418F16844559}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

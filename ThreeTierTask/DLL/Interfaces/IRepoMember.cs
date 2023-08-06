@@ -10,7 +10,7 @@ namespace DLL.Interfaces
     {
         List<CLASS> OpenProjects();
 
-        LOGIC ApplyEnrollment(NUMBER pid);
+        LOGIC ApplyEnrollment(NUMBER mid, NUMBER pid);
 
         List<CLASS> Applied(NUMBER mid);
 

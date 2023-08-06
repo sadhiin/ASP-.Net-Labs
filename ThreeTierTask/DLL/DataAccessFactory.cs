@@ -11,9 +11,17 @@ namespace DLL
 {
     public class DataAccessFactory
     {
-        public static IRepoSupervisor<Project> SupervisorDataAccess()
+        public static IRepoSupervisor<Project, int, Member, bool> SupervisorDataAccess()
         {
             return new SupervisorRepo();
+        }
+        public static ICategory<Category, int, bool> CategoryDataAccess()
+        {
+            return new SupervisorRepo();
+        }
+        public static IRepoMember<Project, bool, int> MemberDataAccess()
+        {
+            return new MemberRepo();
         }
     }
 }

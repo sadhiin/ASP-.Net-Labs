@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DLL.Repos
 {
-    internal class SupervisorRepo : Repo, IRepoSupervisor<Project, int, bool>
+    internal class SupervisorRepo : Repo, IRepoSupervisor<Project, int, Member, bool>, ICategory<Category, int, bool>
     {
         public List<Project> AllCompletedProjects()
         {
@@ -51,6 +51,31 @@ namespace DLL.Repos
         public List<Project> Projects()
         {
             return _context.Projects.Where(p=>p.Status==0).ToList();
+        }
+
+        public List<Category> GetCategories()
+        {
+            return _context.Categories.ToList();
+        }
+
+        public bool Create(Category category)
+        {
+            _context.Categories.Add(category);
+            int chk = _context.SaveChanges();
+            return chk > 0;
+        }
+
+        public Category GetCategory(int cid)
+        {
+            return _context.Categories.Find(cid);
+        }
+
+        public List<Member> GetMembersInProject(int pId)
+        {
+            return _context.Projects
+                   .Where(p => p.ProjectId == pId)
+                   .SelectMany(p => p.Enrollments.Select(e => e.Member))
+                   .ToList();
         }
     }
 }

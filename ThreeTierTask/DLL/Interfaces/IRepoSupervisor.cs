@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DLL.Interfaces
 {
-    public interface IRepoSupervisor<CLASS, NUMBER, LOGIC>
+    public interface IRepoSupervisor<CLASS, NUMBER,RTN, LOGIC>
     {
         LOGIC CreateProject(CLASS p);
         CLASS ProjectById(NUMBER id);
@@ -16,6 +16,6 @@ namespace DLL.Interfaces
         LOGIC CompleteProject(NUMBER pId);
         List<CLASS> AllCompletedProjects();
 
-
+        List<RTN> GetMembersInProject(NUMBER pId);
     }
 }
